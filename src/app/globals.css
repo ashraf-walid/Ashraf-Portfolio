@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global design tokens */
+:root {
+  /* Keep in sync with tailwind.config.js theme.colors.accent */
+  --accent-color: #ececec;
+}
+
+/* Motion styles for Animate component */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.bg-motion {
+  position: absolute;
+  border-radius: 9999px; /* fully rounded */
+  background: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--accent-color), transparent 90%),
+    color-mix(in srgb, var(--accent-color), transparent 95%)
+  );
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Respect user preference to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-motion { animation: none; }
+}
+
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+.bounceArrow {
+  animation: bounce 4s ease-in-out infinite;
+}
+
+
+/* 
+
+
+#232323
+#ececec
+#393939
+#ffffff
+rgba(236, 236, 236, 0.59);
+#1f1f1f 
+
+
+*/
