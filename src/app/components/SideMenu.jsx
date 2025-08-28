@@ -38,7 +38,7 @@ export default function SideMenu() {
         });
       },
       {
-        threshold: 0.6, // become active when ~60% in view
+        threshold: 0.5, // become active when ~50% in view
       }
     );
 
@@ -62,7 +62,7 @@ export default function SideMenu() {
 
   return (
     <nav
-      className="flex flex-col gap-y-2 px-4 justify-start sticky w-1/5 h-[90vh] top-6 bg-sideMenu ml-4 rounded-2xl border border-sideMenuHover"
+      className="hidden md:flex flex-col gap-y-2 px-4 justify-start sticky w-1/5 h-[90vh] top-6 bg-sideMenu ml-4 rounded-2xl border border-sideMenuHover"
       aria-label="Section navigation"
       role="navigation"
     >
