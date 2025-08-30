@@ -87,9 +87,9 @@ export default function SideMenu() {
       {/* Side menu (mobile & desktop) */}
       <nav
         className={`
-          fixed top-0 right-0 h-full w-4/6 max-w-xs z-50 bg-sideMenu border border-sideMenuHover 
+          fixed top-0 left-0 h-full w-4/6 max-w-xs z-50 bg-sideMenu border border-sideMenuHover 
           rounded-l-2xl px-4 py-6 flex flex-col justify-start gap-y-2 transition-transform duration-500 
-          md:sticky md:top-6 md:w-1/5 md:max-w-none md:rounded-2xl md:ml-4 md:flex md:translate-x-0
+          md:sticky md:top-10 md:w-1/5 md:max-w-none md:rounded-2xl md:ml-4 md:flex md:translate-x-0
           ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}
           md:static md:opacity-100 md:pointer-events-auto
         `}
