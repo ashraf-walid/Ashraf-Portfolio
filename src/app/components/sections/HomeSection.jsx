@@ -14,7 +14,7 @@ export default function HomeSection() {
       <Animate size={140} className="top-40 left-8 md:top-52 md:left-64" />
       {/* Left Side: Text */}
       <div className="space-y-4 sm:space-y-6 text-center md:text-left z-10">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-accent">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
           Ashraf Elgezery
         </h1>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300">
@@ -45,7 +45,7 @@ export default function HomeSection() {
           src="/profile/profile-1.webp"
           priority
           alt="Profile photo"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-80 lg:w-80 lg:h-96 rounded-3xl object-cover shadow-[15px_15px_0px_rgb(81,81,81)]"
+          className="w-48 h-48 sm:w-64 sm:h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 rounded-3xl object-cover shadow-[15px_15px_0px_rgb(81,81,81)]"
           width={400}
           height={400}
         />
