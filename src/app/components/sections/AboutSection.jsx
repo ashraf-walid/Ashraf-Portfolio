@@ -27,7 +27,7 @@ export default function AboutSection() {
         <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <MapPin aria-hidden="true"/> Egypt, Damitta </div>
       </div>
       {/* Get to know me */}
-      <div className="w-full flex flex-col gap-6">
+      <div className="w-full flex flex-col gap-6 mt-10 md:mt-0">
         <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl">Get to know me</div>
         <div className="text-3xl sm:text-4xl md:text-5xl max-w-full md:max-w-[470px] font-bold">Passionate About Creating Web Applications</div>
         <div className="text-base sm:text-xl text-gray-300">
@@ -39,17 +39,17 @@ export default function AboutSection() {
         </div>
         <div className="flex flex-col sm:flex-row bg-[#232323] p-6 sm:p-8 justify-between rounded-3xl gap-6 sm:gap-0">
           <div className="text-center">
-            <div className="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">5+</div>
+            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">5+</div>
             <div className="text-gray-400 text-base sm:text-lg">projects</div>
             <div className="text-gray-400 text-base sm:text-lg">completed</div>
           </div>
           <div className="text-center">
-            <div className="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">2+</div>
+            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">2+</div>
             <div className="text-gray-400 text-base sm:text-lg">Years</div>
             <div className="text-gray-400 text-base sm:text-lg">Experience</div>
           </div>
           <div className="text-center">
-            <div className="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">98%</div>
+            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">98%</div>
             <div className="text-gray-400 text-base sm:text-lg">Client</div>
             <div className="text-gray-400 text-base sm:text-lg">Satisfaction</div>
           </div>

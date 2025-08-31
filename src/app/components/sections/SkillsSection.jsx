@@ -10,6 +10,24 @@ export default function SkillsSection() {
       description: "Modern frontend technologies and frameworks",
       skills: [
         {
+          name: "HTML5",
+          icon: "/icons/html5.svg",
+          tooltip: ".......................................",
+          color: "hover:bg-red-500/20"
+        },
+        {
+          name: "CSS3",
+          icon: "/icons/css.svg",
+          tooltip: ".......................................",
+          color: "hover:bg-blue-500/20"
+        },
+        {
+          name: "Javascript",
+          icon: "/icons/javascript.svg",
+          tooltip: ".......................................",
+          color: "hover:bg-yello-500/20"
+        },
+        {
           name: "React",
           icon: "/icons/react.svg",
           tooltip: "Built dynamic dashboards and SPAs with component-based architecture",
@@ -44,7 +62,13 @@ export default function SkillsSection() {
           icon: "/icons/context.svg",
           tooltip: "Implemented lightweight state management for component trees",
           color: "hover:bg-green-500/20"
-        }
+        },
+        {
+          name: "PWA",
+          icon: "/icons/pwa.svg",
+          tooltip: ".......................................",
+          color: "hover:bg-browen-500/20"
+        },
       ]
     },
     {

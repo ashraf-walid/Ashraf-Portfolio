@@ -12,11 +12,7 @@ import {
 } from "lucide-react";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
@@ -120,7 +116,8 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white placeholder-gray-400 
+                  focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
                   placeholder="Your full name"
                 />
               </div>
