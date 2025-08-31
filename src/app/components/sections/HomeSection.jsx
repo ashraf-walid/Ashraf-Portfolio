@@ -35,14 +35,14 @@ export default function HomeSection() {
           Frontend Developer specialized in React & Next.js. I create fast, secure, and user-friendly web apps with a focus on clean design and performance.
         </p>
         <a href={`#projects`} className="inline-block px-6 py-3 mt-8 sm:mt-12 md:mt-16 text-lg bg-[#515151] hover:bg-[#393939] font-semibold rounded-full shadow-md text-white focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition">
-           View My Work
+          View My Work
         </a>
       </div>
 
       {/* Right Side: Image */}
       <div className="flex justify-center md:justify-end z-10">
         <Image
-          src="/profile1/profile-1.webp"
+          src="/profile/profile-1.webp"
           priority
           alt="Profile photo"
           className="w-48 h-48 sm:w-64 sm:h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 rounded-3xl object-cover shadow-[15px_15px_0px_rgb(81,81,81)]"

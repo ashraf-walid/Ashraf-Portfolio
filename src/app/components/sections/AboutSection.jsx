@@ -9,7 +9,7 @@ export default function AboutSection() {
         {/* Image & BadgeCheck*/}
         <div className="relative">
           <Image
-            src="/profile1/profile-2.jpg"
+            src="/profile/profile-2.jpg"
             alt="Portrait of Ashraf Elgezery, Frontend Developer"
             className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover border-4"
             width={200}

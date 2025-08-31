@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function ResumeSection() {
+export default function SkillsSection() {
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   const skillCategories = [
@@ -110,7 +110,7 @@ export default function ResumeSection() {
   ];
 
   return (
-    <section id="resume" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
+    <section id="skills" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -180,7 +180,6 @@ export default function ResumeSection() {
             </div>
           ))}
         </div>
-
         {/* Additional Info */}
         <div className="mt-16 bg-surface rounded-3xl p-6 sm:p-8">
           <div className="grid md:grid-cols-2 gap-8">

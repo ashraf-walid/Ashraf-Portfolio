@@ -5,7 +5,7 @@ import {
   User,
   Folder,
   Mail,
-  FileText,
+  FileCheck2,
   Briefcase,
   Facebook,
   Linkedin,
@@ -17,7 +17,7 @@ import {
 const sections = [
   { id: "home", icon: <Home size={24} />, label: "Home" },
   { id: "about", icon: <User size={24} />, label: "About" },
-  { id: "resume", icon: <FileText size={24} />, label: "Resume" },
+  { id: "skills", icon: <FileCheck2 size={24}/>, label: "Skills" },
   { id: "projects", icon: <Folder size={24} />, label: "Projects" },
   { id: "services", icon: <Briefcase size={24} />, label: "Services" },
   { id: "contact", icon: <Mail size={24} />, label: "Contact" },
