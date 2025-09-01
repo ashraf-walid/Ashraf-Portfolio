@@ -3,11 +3,55 @@
 import nextPWA from "next-pwa";
 
 /** @type {import('next').NextConfig} */
+
 const withPWA = nextPWA({
   dest: "public",
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
+  runtimeCaching: [
+    {
+      urlPattern: /^https:\/\/firebasestorage\.googleapis\.com\/.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "firebase-storage",
+        expiration: {
+          maxEntries: 100,
+          maxAgeSeconds: 24 * 60 * 60, // يوم كامل
+        },
+      },
+    },
+    {
+      urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
+      handler: "StaleWhileRevalidate",
+      options: {
+        cacheName: "unsplash-images",
+        expiration: {
+          maxEntries: 50,
+          maxAgeSeconds: 7 * 24 * 60 * 60, // أسبوع
+        },
+      },
+    },
+    {
+      urlPattern: /^https:\/\/fonts\.(gstatic|googleapis)\.com\/.*/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "google-fonts",
+        expiration: {
+          maxEntries: 20,
+          maxAgeSeconds: 365 * 24 * 60 * 60, // سنة
+        },
+      },
+    },
+    {
+      urlPattern: /.*/i,
+      handler: "NetworkFirst", // أي صفحة HTML أو API
+      options: {
+        cacheName: "pages",
+        networkTimeoutSeconds: 10,
+      },
+    },
+  ],
 });
 
 const nextConfig = {
