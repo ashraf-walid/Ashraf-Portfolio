@@ -12,20 +12,20 @@ export default function SkillsSection() {
         {
           name: "HTML5",
           icon: "/icons/html5.svg",
-          tooltip: ".......................................",
+          tooltip: "Semantic markup for accessible, SEO-friendly web pages",
           color: "hover:bg-red-500/20"
         },
         {
           name: "CSS3",
           icon: "/icons/css.svg",
-          tooltip: ".......................................",
+          tooltip: "Modern layouts, animations, and responsive design",
           color: "hover:bg-blue-500/20"
         },
         {
           name: "Javascript",
           icon: "/icons/javascript.svg",
-          tooltip: ".......................................",
-          color: "hover:bg-yello-500/20"
+          tooltip: "Dynamic, interactive web experiences and logic",
+          color: "hover:bg-yellow-500/20"
         },
         {
           name: "React",
@@ -66,8 +66,14 @@ export default function SkillsSection() {
         {
           name: "PWA",
           icon: "/icons/pwa.svg",
-          tooltip: ".......................................",
-          color: "hover:bg-browen-500/20"
+          tooltip: "Progressive Web Apps for offline support and native-like experiences",
+          color: "hover:bg-gray-500/10"
+        },
+        {
+          name: "Firebase",
+          icon: "/icons/firebase.svg",
+          tooltip: "Real-time database, authentication, and hosting for web apps",
+          color: "hover:bg-orange-500/10"
         },
       ]
     },

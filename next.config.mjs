@@ -1,4 +1,15 @@
+// next.config.mjs
+
+import nextPWA from "next-pwa";
+
 /** @type {import('next').NextConfig} */
+const withPWA = nextPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+});
+
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -52,7 +63,6 @@ const nextConfig = {
     webpackBuildWorker: true,
   },
   webpack: (config, { dev, isServer }) => {
-    // Optimize production builds
     if (!dev && !isServer) {
       config.optimization = {
         ...config.optimization,
@@ -82,4 +92,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withPWA(nextConfig);
