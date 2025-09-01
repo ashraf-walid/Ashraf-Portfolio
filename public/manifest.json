@@ -1,12 +1,12 @@
 {
-  "name": "My Next.js App",
-  "short_name": "NextApp",
-  "description": "This is my Next.js PWA application",
+  "name": "Ashraf Portfolio",
+  "short_name": "Portfolio",
+  "description": "This is my portfolio PWA application",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "orientation": "portrait",
+  "orientation": "any",
   "icons": [
     {
       "src": "/icons/logo.png",

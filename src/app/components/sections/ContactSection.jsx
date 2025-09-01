@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Github, 
-  Linkedin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
   Send,
   CheckCircle,
   AlertCircle
@@ -33,7 +33,7 @@ export default function ContactSection() {
       // Simulate EmailJS submission
       // In a real implementation, you would use EmailJS here
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       setSubmitStatus('success');
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
@@ -91,7 +91,7 @@ export default function ContactSection() {
             Let's Work Together
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to start your next project? I'm here to help bring your ideas to life. 
+            Ready to start your next project? I'm here to help bring your ideas to life.
             Let's discuss your requirements and create something amazing together.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function ContactSection() {
             <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
               Send Me a Message
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
@@ -199,7 +199,7 @@ export default function ContactSection() {
               <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-4">
                 {contactInfo.map((info, index) => {
                   const IconComponent = info.icon;
@@ -232,7 +232,7 @@ export default function ContactSection() {
               <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
                 Follow Me
               </h3>
-              
+
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
@@ -258,7 +258,7 @@ export default function ContactSection() {
                 Quick Response
               </h3>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                I typically respond to messages within 24 hours. For urgent inquiries, 
+                I typically respond to messages within 24 hours. For urgent inquiries,
                 feel free to call or send a direct email.
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function ContactSection() {
               Ready to Start Your Project?
             </h3>
             <p className="text-gray-300 text-base sm:text-lg mb-6">
-              Whether you have a specific project in mind or just want to discuss possibilities, 
+              Whether you have a specific project in mind or just want to discuss possibilities,
               I'm here to help you achieve your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
