@@ -34,7 +34,8 @@ export const metadata = {
     title: "Ashraf Elgezery | Frontend Developer",
     description:
       "Frontend Developer specializing in React, Next.js, and building modern, responsive web applications.",
-    url: "https://your-portfolio-link.com",
+    url: "https://ashraf-portfolio-seven.vercel.app/",
+    metadataBase: new URL("https://ashraf-portfolio-seven.vercel.app/"),
     siteName: "Ashraf Elgezery Portfolio",
     images: [
       {
