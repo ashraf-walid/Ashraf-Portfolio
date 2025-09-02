@@ -1,1 +1,54 @@
-if(!self.define){let e,s={};const n=(n,t)=>(n=new URL(n+".js",t).href,s[n]||new Promise(s=>{if("document"in self){const e=document.createElement("script");e.src=n,e.onload=s,document.head.appendChild(e)}else e=n,importScripts(n),s()}).then(()=>{let e=s[n];if(!e)throw new Error(`Module ${n} didn’t register its module`);return e}));self.define=(t,c)=>{const i=e||("document"in self?document.currentScript.src:"")||location.href;if(s[i])return;let a={};const o=e=>n(e,i),r={module:{uri:i},exports:a,require:o};s[i]=Promise.all(t.map(e=>r[e]||o(e))).then(e=>(c(...e),a))}}define(["./workbox-00a24876"],function(e){"use strict";importScripts("fallback-5hojlgNMqBcmoIsjRPeWv.js"),self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"/_next/app-build-manifest.json",revision:"a9305ee27a96d1337544d0786ba55666"},{url:"/_next/static/5hojlgNMqBcmoIsjRPeWv/_buildManifest.js",revision:"0129f70cc173448af6508800bedd4a50"},{url:"/_next/static/5hojlgNMqBcmoIsjRPeWv/_ssgManifest.js",revision:"b6652df95db52feb4daf4eca35380933"},{url:"/_next/static/chunks/10-f7bcc9a803690bb0.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/142-935b36c076b55feb.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/218-340acbe721884a6e.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/248-f2f7e8df3ded7c8c.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/252-65be3e17a9aae0e5.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/279-c45ead1d9f330394.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/288-4818e323a0dfbcdd.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/341.df3329d77a5faa19.js",revision:"df3329d77a5faa19"},{url:"/_next/static/chunks/472.a3826d29d6854395.js",revision:"a3826d29d6854395"},{url:"/_next/static/chunks/495-6c800d5689d7e708.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/544-b83b3bb58bb178ac.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/561-dd4e48dc5188194f.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/706-bd36b15f8677f588.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/71-7b5c5c7e6a51d2eb.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/993-636b801e2c5eced5.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/app/_not-found/page-e58f90d6c98c540c.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/app/layout-57b9439cd56b2918.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/app/page-f1df0af76d7e12cd.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/main-06655d478dcf3471.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/main-app-c40ea0df8e9a0650.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/pages/_app-0103c78bd104d59d.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/pages/_error-053638d9ae77693f.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/chunks/polyfills-42372ed130431b0a.js",revision:"846118c33b2c0e922d7b3a7676f81f6f"},{url:"/_next/static/chunks/webpack-4b4e14f70f5442c0.js",revision:"5hojlgNMqBcmoIsjRPeWv"},{url:"/_next/static/css/a4abd9449589c5d4.css",revision:"a4abd9449589c5d4"},{url:"/offline.html",revision:"1756801852515"}],{ignoreURLParametersMatching:[]}),e.cleanupOutdatedCaches(),e.registerRoute("/",new e.NetworkFirst({cacheName:"start-url",plugins:[{cacheWillUpdate:async({request:e,response:s,event:n,state:t})=>s&&"opaqueredirect"===s.type?new Response(s.body,{status:200,statusText:"OK",headers:s.headers}):s},{handlerDidError:async({request:e})=>self.fallback(e)}]}),"GET"),e.registerRoute(/^https:\/\/firebasestorage\.googleapis\.com\/.*/i,new e.CacheFirst({cacheName:"firebase-storage",plugins:[new e.ExpirationPlugin({maxEntries:100,maxAgeSeconds:86400}),{handlerDidError:async({request:e})=>self.fallback(e)}]}),"GET"),e.registerRoute(/^https:\/\/images\.unsplash\.com\/.*/i,new e.StaleWhileRevalidate({cacheName:"unsplash-images",plugins:[new e.ExpirationPlugin({maxEntries:50,maxAgeSeconds:604800}),{handlerDidError:async({request:e})=>self.fallback(e)}]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(gstatic|googleapis)\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts",plugins:[new e.ExpirationPlugin({maxEntries:20,maxAgeSeconds:31536e3}),{handlerDidError:async({request:e})=>self.fallback(e)}]}),"GET"),e.registerRoute(({request:e})=>"navigate"===e.mode,new e.NetworkFirst({cacheName:"pages",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:50,maxAgeSeconds:604800}),{handlerDidError:async({request:e})=>self.fallback(e)}]}),"GET")});
+const CACHE_NAME = "portfolio-cache-v2";
+const OFFLINE_URL = "/offline.html";
+
+// عند التثبيت: خزّن بس صفحة offline.html والأصول الثابتة
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.add(OFFLINE_URL);
+    })
+  );
+});
+
+// عند الطلب
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse; // رجع من الكاش لو موجود
+      }
+
+      return fetch(event.request)
+        .then((networkResponse) => {
+          // خزّن نسخة من الطلب الجديد في الكاش
+          return caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+        })
+        .catch(() => {
+          // fallback لو مفيش إنترنت
+          if (event.request.mode === "navigate") {
+            return caches.match(OFFLINE_URL);
+          }
+        });
+    })
+  );
+});
+
+// تنظيف الكاش القديم
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((name) => {
+          if (name !== CACHE_NAME) {
+            return caches.delete(name);
+          }
+        })
+      )
+    )
+  );
+});

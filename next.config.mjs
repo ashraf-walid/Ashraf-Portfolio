@@ -1,71 +1,47 @@
 // next.config.mjs
 
-import nextPWA from "next-pwa";
 
 /** @type {import('next').NextConfig} */
 
-const withPWA = nextPWA({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
-  fallbacks: {
-    document: "/offline.html",
-  },
-  additionalManifestEntries: [
-    { url: "/offline.html", revision: Date.now().toString() },
-  ],
-  runtimeCaching: [
-    {
-      urlPattern: /^https:\/\/firebasestorage\.googleapis\.com\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "firebase-storage",
-        expiration: {
-          maxEntries: 100,
-          maxAgeSeconds: 24 * 60 * 60,
-        },
-      },
-    },
-    {
-      urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "unsplash-images",
-        expiration: {
-          maxEntries: 50,
-          maxAgeSeconds: 7 * 24 * 60 * 60,
-        },
-      },
-    },
-    {
-      urlPattern: /^https:\/\/fonts\.(gstatic|googleapis)\.com\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "google-fonts",
-        expiration: {
-          maxEntries: 20,
-          maxAgeSeconds: 365 * 24 * 60 * 60,
-        },
-      },
-    },
-    {
-      // أهم جزء: مسك كل طلبات الصفحات
-      urlPattern: ({ request }) => request.mode === "navigate",
-      handler: "NetworkFirst",
-      options: {
-        cacheName: "pages",
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxEntries: 50,
-          maxAgeSeconds: 7 * 24 * 60 * 60,
-        },
-      },
-    },
-  ],
-});
-
 const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+      {
+        source: '/sw.js',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/javascript; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self'",
+          },
+        ],
+      },
+    ]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -147,6 +123,6 @@ const nextConfig = {
   },
 };
 
-export default withPWA(nextConfig);
+export default nextConfig;
 
 

@@ -1,22 +1,7 @@
-// import { Cairo, Tajawal } from 'next/font/google'
 import "./globals.css";
 import SideMenu from "./components/SideMenu";
 import ScrollToTop from "./components/scroll";
-
-// const cairo = Cairo({
-//   subsets: ["arabic", "latin"],
-//   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-//   display: "swap",
-//   variable: "--font-cairo",
-// })
-
-// const tajawal = Tajawal({
-//   subsets: ["arabic", "latin"],
-//   weight: ["200", "300", "400", "500", "700", "800", "900"],
-//   display: "swap",
-//   variable: "--font-tajawal",
-// })
-
+import ClientWrapper from "@/app/components/ClientWrapper";
 export const metadata = {
   title: "Ashraf Elgezery | Frontend Developer",
   description:
@@ -65,10 +50,10 @@ export const metadata = {
     url: "https://your-portfolio-link.com",
     sameAs: [
       "https://github.com/yourusername",
-      "https://linkedin.com/in/yourusername"
-    ]
+      "https://linkedin.com/in/yourusername",
+    ],
   })}
-</script>
+</script>;
 
 export default function RootLayout({ children }) {
   return (
@@ -76,14 +61,16 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
-        <link rel="apple-touch-icon" href="/icons/logo.svg" />
       </head>
+
       <body className="bg-background text-white flex">
-        {/* Sidebar */}
-        <SideMenu />
-        {/* Main Content */}
-        <main className="flex-1 p-6">{children}</main>
-        <ScrollToTop />
+        <ClientWrapper>
+          {/* Sidebar */}
+          <SideMenu />
+          {/* Main Content */}
+          <main className="flex-1 p-6">{children}</main>
+          <ScrollToTop />
+        </ClientWrapper>
       </body>
     </html>
   );
