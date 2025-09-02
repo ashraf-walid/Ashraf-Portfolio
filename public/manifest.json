@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "Ashraf Portfolio",
   "short_name": "Portfolio",
   "description": "This is my portfolio PWA application",
@@ -6,16 +7,30 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
+  "scope": "/",
   "orientation": "any",
   "icons": [
     {
-      "src": "/icons/logo.png",
+      "src": "/icons/logo192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icons/logo.png",
+      "src": "/icons/logo512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icons/screenshot-wide.png",
+      "sizes": "1888x855",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/icons/screenshot-mobile.png",
+      "sizes": "341x728",
       "type": "image/png"
     }
   ]

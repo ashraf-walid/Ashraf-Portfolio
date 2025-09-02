@@ -9,6 +9,12 @@ const withPWA = nextPWA({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
+  fallbacks: {
+    document: "/offline.html",
+  },
+  additionalManifestEntries: [
+    { url: "/offline.html", revision: Date.now().toString() },
+  ],
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/firebasestorage\.googleapis\.com\/.*/i,
@@ -17,7 +23,7 @@ const withPWA = nextPWA({
         cacheName: "firebase-storage",
         expiration: {
           maxEntries: 100,
-          maxAgeSeconds: 24 * 60 * 60, // يوم كامل
+          maxAgeSeconds: 24 * 60 * 60,
         },
       },
     },
@@ -28,7 +34,7 @@ const withPWA = nextPWA({
         cacheName: "unsplash-images",
         expiration: {
           maxEntries: 50,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // أسبوع
+          maxAgeSeconds: 7 * 24 * 60 * 60,
         },
       },
     },
@@ -39,16 +45,21 @@ const withPWA = nextPWA({
         cacheName: "google-fonts",
         expiration: {
           maxEntries: 20,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // سنة
+          maxAgeSeconds: 365 * 24 * 60 * 60,
         },
       },
     },
     {
-      urlPattern: /.*/i,
-      handler: "NetworkFirst", // أي صفحة HTML أو API
+      // أهم جزء: مسك كل طلبات الصفحات
+      urlPattern: ({ request }) => request.mode === "navigate",
+      handler: "NetworkFirst",
       options: {
         cacheName: "pages",
         networkTimeoutSeconds: 10,
+        expiration: {
+          maxEntries: 50,
+          maxAgeSeconds: 7 * 24 * 60 * 60,
+        },
       },
     },
   ],
@@ -137,3 +148,5 @@ const nextConfig = {
 };
 
 export default withPWA(nextConfig);
+
+
