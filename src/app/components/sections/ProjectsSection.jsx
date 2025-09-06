@@ -1,16 +1,15 @@
 "use client";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
       name: "E-Commerce Website",
-      // and secure payment processing
       description: "A full-featured online store with product catalog, shopping cart, Favorites page, Payment and confirmation page, Advanced Filter, user authentication. Solves the need for businesses to sell products online with a modern, responsive interface.",
-      image: "/projects/ecommerce.png",
-      // "Stripe"
+      image: "/projects/ecommerce.PNG",
       technologies: ["Next.js", "Firebase", "Zustand (state management)", "Tailwind CSS", "Lucide" ,"Node.js"],
       liveDemo: "https://e-commerce-version-arabic.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/e-commerce-version-arabic",
@@ -20,7 +19,7 @@ export default function ProjectsSection() {
       id: 2,
       name: "Admin Panel",
       description: "A modern admin dashboard built with React and Firebase, featuring user management, authentication, and dashboard analytics. The application provides an interface for administrators to manage users and view system analytics.",
-      image: "/projects/admin-dashboard.png",
+      image: "/projects/admin-dashboard.PNG",
       technologies: ["React 19","Firebase","React Router DOM","Vite","Tailwind CSS","Zustand","Lucide React (icons)"],    
       liveDemo: "https://admin-panel-ten-mu.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/Admin-Panel.git",
@@ -42,7 +41,7 @@ export default function ProjectsSection() {
       id: 4,
       name: "Portfolio Website",
       description: "Modern, responsive portfolio website showcasing skills and projects. Features smooth animations, dark mode, and optimized performance for better user experience.",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Emailjs", "TypeScript"],
       liveDemo: "https://ashraf-portfolio-seven.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/Ashraf-Portfolio.git",
       featured: false
@@ -53,26 +52,95 @@ export default function ProjectsSection() {
     <section id="projects" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             My Projects
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
+          </motion.div>
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             Featured Projects
-          </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             A collection of projects that showcase my skills in web development, from full-stack applications to modern user interfaces.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Featured Projects */}
-        <div className="mb-16">
-          <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center">
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.h3 
+            className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             Featured Work
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          </motion.h3>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { 
+                  staggerChildren: 0.2,
+                  delayChildren: 0.4
+                }
+              }
+            }}
+          >
             {projects.filter(project => project.featured).map((project) => (
-              <div key={project.id} className="group">
+              <motion.div 
+                key={project.id} 
+                className="group"
+                variants={{
+                  hidden: { 
+                    opacity: 0, 
+                    y: 40,
+                    scale: 0.95
+                  },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.6,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+              >
                 <div className="bg-surface rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   {/* Project Image */}
                   <div className="relative h-64 overflow-hidden">
@@ -150,19 +218,63 @@ export default function ProjectsSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Other Projects */}
-        <div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.h3 
+            className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             Other Projects
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          </motion.h3>
+          <motion.div 
+            className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { 
+                  staggerChildren: 0.15,
+                  delayChildren: 0.4
+                }
+              }
+            }}
+          >
             {projects.filter(project => !project.featured).map((project) => (
-              <div key={project.id} className="group">
+              <motion.div 
+                key={project.id} 
+                className="group"
+                variants={{
+                  hidden: { 
+                    opacity: 0, 
+                    y: 30,
+                    scale: 0.95
+                  },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.5,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+              >
                 <div className="bg-surface rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -205,7 +317,7 @@ export default function ProjectsSection() {
                     {/* Technologies */}
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 4).map((tech, index) => (
+                        {project.technologies.slice(0, 5).map((tech, index) => (
                           <span
                             key={index}
                             className="px-2 py-1 bg-[#1b1b1b] text-gray-300 text-xs rounded-full border border-gray-600"
@@ -244,31 +356,61 @@ export default function ProjectsSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-surface rounded-3xl p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="bg-surface rounded-3xl p-6 sm:p-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <motion.h3 
+              className="text-xl sm:text-2xl font-bold text-accent mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               Want to see more?
-            </h3>
-            <p className="text-gray-300 text-base sm:text-lg mb-6">
+            </motion.h3>
+            <motion.p 
+              className="text-gray-300 text-base sm:text-lg mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
               Check out my GitHub profile for more projects and contributions.
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href="https://github.com/ashraf-walid"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Github size={20} />
               View All Projects on GitHub
-            </a>
-          </div>
-        </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

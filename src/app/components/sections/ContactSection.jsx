@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -91,7 +92,7 @@ export default function ContactSection() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/ِashrafelgezery",
+      url: "https://www.linkedin.com/in/ashrafelgezery",
       color: "hover:bg-blue-600"
     }
   ];
@@ -100,22 +101,58 @@ export default function ContactSection() {
     <section id="contact" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             Get In Touch
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
+          </motion.div>
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             Let's Work Together
-          </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             Ready to start your next project? I'm here to help bring your ideas to life.
             Let's discuss your requirements and create something amazing together.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-8 lg:gap-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           {/* Contact Form */}
-          <div className="bg-surface rounded-3xl p-6 sm:p-8">
+          <motion.div 
+            className="bg-surface rounded-3xl p-6 sm:p-8"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
               Send Me a Message
             </h3>
@@ -219,12 +256,24 @@ export default function ContactSection() {
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             {/* Contact Details */}
-            <div className="bg-surface rounded-3xl p-6 sm:p-8">
+            <motion.div 
+              className="bg-surface rounded-3xl p-6 sm:p-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
               <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
                 Contact Information
               </h3>
@@ -233,7 +282,14 @@ export default function ContactSection() {
                 {contactInfo.map((info, index) => {
                   const IconComponent = info.icon;
                   return (
-                    <div key={index} className="flex items-center gap-4">
+                    <motion.div 
+                      key={index} 
+                      className="flex items-center gap-4"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
                       <div className="w-12 h-12 bg-[#1b1b1b] rounded-xl flex items-center justify-center">
                         <IconComponent size={24} className="text-accent" aria-hidden="true" />
                       </div>
@@ -251,14 +307,20 @@ export default function ContactSection() {
                           <p className="text-gray-300">{info.value}</p>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             {/* Social Links */}
-            <div className="bg-surface rounded-3xl p-6 sm:p-8">
+            <motion.div 
+              className="bg-surface rounded-3xl p-6 sm:p-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
               <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-6">
                 Follow Me
               </h3>
@@ -267,23 +329,35 @@ export default function ContactSection() {
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
                   return (
-                    <a
+                    <motion.a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Visit my ${social.label}`}
                       className={`w-12 h-12 bg-[#1b1b1b] rounded-xl flex items-center justify-center text-accent hover:text-white transition-all duration-300 ${social.color}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <IconComponent size={24} aria-hidden="true" />
-                    </a>
+                    </motion.a>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             {/* Quick Response */}
-            <div className="bg-surface rounded-3xl p-6 sm:p-8">
+            <motion.div 
+              className="bg-surface rounded-3xl p-6 sm:p-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
               <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
                 Quick Response
               </h3>
@@ -291,9 +365,9 @@ export default function ContactSection() {
                 I typically respond to messages within 24 hours. For urgent inquiries,
                 feel free to call or send a direct email.
               </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

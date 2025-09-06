@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { 
   Monitor, 
   Code, 
@@ -70,7 +71,13 @@ export default function ServicesSection() {
     <section id="services" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }} 
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6">
             My Services
           </div>
@@ -81,14 +88,47 @@ export default function ServicesSection() {
             Comprehensive web development services, 
             ensuring your digital presence is modern, fast, and user-friendly.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <motion.div 
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { 
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+              }
+            }
+          }}
+        >
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
-              <div key={service.id} className="group">
+              <motion.div 
+                key={service.id} 
+                className="group"
+                variants={{
+                  hidden: { 
+                    opacity: 0, 
+                    y: 30,
+                    scale: 0.95
+                  },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.5,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+              >
                 <div className={`
                   bg-surface rounded-3xl p-6 sm:p-8 h-full
                   border border-gray-700/50
@@ -123,10 +163,10 @@ export default function ServicesSection() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Additional Services Info */}
         <div className="mt-16">

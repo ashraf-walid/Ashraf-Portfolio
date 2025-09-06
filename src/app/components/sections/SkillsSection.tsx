@@ -1,10 +1,24 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+interface Skill {
+  name: string;
+  icon: string;
+  tooltip: string;
+  color: string;
+}
+
+interface SkillCategory {
+  title: string;
+  description: string;
+  skills: Skill[];
+}
 
 export default function SkillsSection() {
-  const [activeTooltip, setActiveTooltip] = useState(null);
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
 
-  const skillCategories = [
+  const skillCategories: SkillCategory[] = [
     {
       title: "Frontend",
       description: "Modern frontend technologies and frameworks",
@@ -59,36 +73,6 @@ export default function SkillsSection() {
         },
       ]
     },
-    // {
-    //   title: "Backend & Databases",
-    //   description: "Server-side technologies and data management",
-    //   skills: [
-    //     {
-    //       name: "Prisma",
-    //       icon: "/icons/prisma.svg",
-    //       tooltip: "Type-safe database access and schema management",
-    //       color: "hover:bg-white/20"
-    //     },
-    //     {
-    //       name: "PostgreSQL",
-    //       icon: "/icons/postgresql.svg",
-    //       tooltip: "Reliable relational database for production applications",
-    //       color: "hover:bg-blue-400/20"
-    //     },
-    //     {
-    //       name: "Strapi",
-    //       icon: "/icons/strapi.svg",
-    //       tooltip: "Headless CMS for content management and API generation",
-    //       color: "hover:bg-blue-500/20"
-    //     },
-    //     {
-    //       name: "NextAuth",
-    //       icon: "/icons/nextauth.svg",
-    //       tooltip: "Secure authentication and authorization for Next.js applications",
-    //       color: "hover:bg-green-600/20"
-    //     }
-    //   ]
-    // },
     {
       title: "Tools & Others",
       description: "Development tools and additional technologies",
@@ -99,12 +83,6 @@ export default function SkillsSection() {
           tooltip: "Version control and collaborative development workflows",
           color: "hover:bg-orange-600/20"
         },
-        // {
-        //   name: "Clerk",
-        //   icon: "/icons/clerk.svg",
-        //   tooltip: "User authentication and management with pre-built components",
-        //   color: "hover:bg-pink-500/20"
-        // },
         {
           name: "Stripe",
           icon: "/icons/stripe.svg",
@@ -129,12 +107,6 @@ export default function SkillsSection() {
           tooltip: "Improving code quality and scalability with type safety",
           color: "hover:bg-blue-600/20"
         },
-        // {
-        //   name: "Prisma",
-        //   icon: "/icons/prisma.svg",
-        //   tooltip: "Learning type-safe database access and schema management",
-        //   color: "hover:bg-white/20"
-        // },
         {
           name: "NextAuth",
           icon: "/icons/nextauth.svg",
@@ -147,12 +119,6 @@ export default function SkillsSection() {
           tooltip: "Progressive Web Apps for offline support and native-like experiences",
           color: "hover:bg-gray-500/10"
         },
-        // {
-        //   name: "Redux",
-        //   icon: "/icons/redux.svg",
-        //   tooltip: "Managed complex state in large-scale applications",
-        //   color: "hover:bg-purple-500/20"
-        // },
       ]
     }
   ];
@@ -161,22 +127,59 @@ export default function SkillsSection() {
     <section id="skills" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16 max-sm:mt-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             My Skills
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4">
+          </motion.div>
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
             The skills, tools and technologies I use
-          </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             A comprehensive collection of technologies I've worked with to create modern, scalable web applications.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Skills Categories */}
-        <div className="space-y-16">
+        <motion.div 
+          className="space-y-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="bg-surface rounded-3xl p-6 sm:p-8">
+            <motion.div 
+              key={categoryIndex} 
+              className="bg-surface rounded-3xl p-6 sm:p-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 + categoryIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
               <div className="mb-8">
                 <h3 className="text-2xl sm:text-3xl font-bold text-accent mb-2">
                   {category.title}
@@ -186,13 +189,45 @@ export default function SkillsSection() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              <motion.div 
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: { 
+                      staggerChildren: 0.05,
+                      delayChildren: 0.1
+                    }
+                  }
+                }}
+              >
                 {category.skills.map((skill, skillIndex) => (
-                  <div
+                  <motion.div
                     key={skillIndex}
                     className="relative group"
                     onMouseEnter={() => setActiveTooltip(`${categoryIndex}-${skillIndex}`)}
                     onMouseLeave={() => setActiveTooltip(null)}
+                    variants={{
+                      hidden: { 
+                        opacity: 0, 
+                        y: 20,
+                        scale: 0.9
+                      },
+                      visible: { 
+                        opacity: 1, 
+                        y: 0,
+                        scale: 1,
+                        transition: {
+                          duration: 0.4,
+                          ease: "easeOut"
+                        }
+                      }
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <div className={`
                       flex flex-col items-center p-4 rounded-2xl transition-all duration-300
@@ -222,14 +257,20 @@ export default function SkillsSection() {
                         </div>
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         {/* Additional Info */}
-        <div className="mt-16 bg-surface rounded-3xl p-6 sm:p-8">
+        <motion.div 
+          className="mt-16 bg-surface rounded-3xl p-6 sm:p-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
@@ -248,7 +289,7 @@ export default function SkillsSection() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
