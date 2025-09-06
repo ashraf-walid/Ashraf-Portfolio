@@ -26,34 +26,25 @@ export default function ProjectsSection() {
       githubRepo: "https://github.com/ashraf-walid/Admin-Panel.git",
       featured: true
     },
-    // {
-    //   id: 2,
-    //   name: "Admin Dashboard",
-    //   description: "Comprehensive admin panel for e-commerce management. Features product management, order tracking, inventory control, and analytics dashboard. Streamlines business operations and improves efficiency.",
-    //   image: "/projects/admin-dashboard.png",
-    //   technologies: ["React", "Node.js", "PostgreSQL", "Prisma", "Chart.js"],
-    //   liveDemo: "https://",
-    //   githubRepo: "https://",
-    //   featured: true
-    // },
     {
       id: 3,
-      name: "Authentication System",
-      description: "Secure user authentication system with social login, email verification, and role-based access control. Built with Firebase Auth and Zustand for state management.",
-      image: "/projects/auth-system.jpg",
-      technologies: ["Firebase Auth", "Zustand", "React", "TypeScript"],
-      liveDemo: "https://auth-demo.vercel.app",
-      githubRepo: "https://github.com/ashraf/auth-system",
-      featured: false
+      name: "E-Commerce",
+      description: `This project is currently under development and will be released soon. 
+                    It already includes the core e-commerce functionality such as product listings.    
+                    More features like advanced filtering, and secure payments are coming soon.`,
+      technologies: ["Firebase Auth", "Zustand", "React"],
+      liveDemo: "https://hilal-computer.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/HILAL-Computer.git",
+      featured: false,
+      note: "In Progress",
     },
     {
       id: 4,
       name: "Portfolio Website",
       description: "Modern, responsive portfolio website showcasing skills and projects. Features smooth animations, dark mode, and optimized performance for better user experience.",
-      image: "/projects/portfolio.jpg",
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      liveDemo: "https://portfolio-demo.vercel.app",
-      githubRepo: "https://github.com/ashraf/portfolio",
+      liveDemo: "https://ashraf-portfolio-seven.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/Ashraf-Portfolio.git",
       featured: false
     }
   ];
@@ -85,25 +76,24 @@ export default function ProjectsSection() {
                 <div className="bg-surface rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   {/* Project Image */}
                   <div className="relative h-64 overflow-hidden">
-                    { }
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      // className="max-w-full h-auto block"
-                      // className="w-full h-full object-cover object-center rounded-lg"
-                      // className="w-full h-full object-contain object-center"
-                      // className="w-full h-full object-cover object-center rounded-lg"
-                      className="max-w-full h-auto rounded-lg"
-                      priority={project.featured}
-                      placeholder="blur"
-                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
-                    />
-                    {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
-                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                      <span className="text-4xl">🛒</span>
-                    </div> */}
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.name}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="max-w-full h-auto rounded-lg"
+                        priority={project.featured}
+                        placeholder="blur"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+                      />  ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
+                        <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                          <span className="text-4xl">🛒</span>
+                        </div>
+                      </> )
+                    }
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                       <div className="text-center text-white">
@@ -206,6 +196,7 @@ export default function ProjectsSection() {
                   <div className="p-6">
                     <h4 className="text-lg sm:text-xl font-bold text-accent mb-2">
                       {project.name}
+                      {project.note && <span className="px-2 py-1 bg-yellow-500 text-black text-xs rounded-full ml-3">{project.note}</span>}
                     </h4>
                     <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                       {project.description}
@@ -214,7 +205,7 @@ export default function ProjectsSection() {
                     {/* Technologies */}
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map((tech, index) => (
+                        {project.technologies.slice(0, 4).map((tech, index) => (
                           <span
                             key={index}
                             className="px-2 py-1 bg-[#1b1b1b] text-gray-300 text-xs rounded-full border border-gray-600"

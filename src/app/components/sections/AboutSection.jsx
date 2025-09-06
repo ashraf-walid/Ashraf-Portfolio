@@ -22,9 +22,9 @@ export default function AboutSection() {
         </div>
         <h2 className="text-xl sm:text-2xl font-bold">Ashraf Elgezery</h2>
         <h3 className="text-sm sm:text-base font-medium">Front End Develober</h3>
-        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <Mail aria-hidden="true"/> ashrafelgezery2014@gmail.com </div>
-        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <Phone aria-hidden="true"/> +20 1000 980 788 </div>
-        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <MapPin aria-hidden="true"/> Egypt, Damitta </div>
+        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <Mail aria-hidden="true"/>ashrafelgezery2014@gmail.com</div>
+        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <Phone aria-hidden="true"/>+20 1000 980 788 </div>
+        <div className="bg-[#1b1b1b] w-full rounded-xl px-4 py-2 flex gap-2 text-sm sm:text-base items-center"> <MapPin aria-hidden="true"/>Egypt, Damitta </div>
       </div>
       {/* Get to know me */}
       <div className="w-full flex flex-col gap-6 mt-10 md:mt-0">

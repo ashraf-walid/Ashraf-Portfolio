@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 import {
   Mail,
   Phone,
@@ -14,7 +15,15 @@ import {
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null); 
+
+  // Auto-hide status message after 5 seconds
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => setSubmitStatus(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,14 +39,22 @@ export default function ContactSection() {
     setSubmitStatus(null);
 
     try {
-      // Simulate EmailJS submission
-      // In a real implementation, you would use EmailJS here
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await emailjs.send(
+        "service_0f5irae",   
+        "template_edl185g",    
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "GtnAZmY8HzMvpR4s_"      
+      );
 
-      setSubmitStatus('success');
+      setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      setSubmitStatus('error');
+      console.error(error.text);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -68,13 +85,13 @@ export default function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      url: "https://github.com/ashraf",
+      url: "https://github.com/ashraf-walid",
       color: "hover:bg-gray-800"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/ashraf",
+      url: "https://www.linkedin.com/in/ِashrafelgezery",
       color: "hover:bg-blue-600"
     }
   ];
@@ -103,7 +120,7 @@ export default function ContactSection() {
               Send Me a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-accent mb-2">
@@ -116,6 +133,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  aria-label="Enter your full name"
                   className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white placeholder-gray-400 
                   focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
                   placeholder="Your full name"
@@ -134,6 +152,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  aria-label="Enter your email address"
                   className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
@@ -151,6 +170,7 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   required
                   rows={5}
+                  aria-label="Enter your message"
                   className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tell me about your project..."
                 />
@@ -160,32 +180,41 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
+                aria-label="Send your message"
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-zinc-700 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-zinc-700 border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send size={18} aria-hidden="true" />
                     Send Message
                   </>
                 )}
               </button>
 
               {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400">
-                  <CheckCircle size={20} />
+              {submitStatus === "success" && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400"
+                >
+                  <CheckCircle size={20} aria-hidden="true" />
                   <span>Message sent successfully! I'll get back to you soon.</span>
                 </div>
               )}
 
-              {submitStatus === 'error' && (
-                <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400">
-                  <AlertCircle size={20} />
+              {submitStatus === "error" && (
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400"
+                >
+                  <AlertCircle size={20} aria-hidden="true" />
                   <span>Something went wrong. Please try again or contact me directly.</span>
                 </div>
               )}
@@ -206,13 +235,14 @@ export default function ContactSection() {
                   return (
                     <div key={index} className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-[#1b1b1b] rounded-xl flex items-center justify-center">
-                        <IconComponent size={24} className="text-accent" />
+                        <IconComponent size={24} className="text-accent" aria-hidden="true" />
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-semibold text-accent">{info.label}</p>
                         {info.link ? (
                           <a
                             href={info.link}
+                            aria-label={`Contact via ${info.label}`}
                             className="text-gray-300 hover:text-accent transition-colors duration-300"
                           >
                             {info.value}
@@ -242,10 +272,10 @@ export default function ContactSection() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit my ${social.label}`}
                       className={`w-12 h-12 bg-[#1b1b1b] rounded-xl flex items-center justify-center text-accent hover:text-white transition-all duration-300 ${social.color}`}
-                      aria-label={`Visit ${social.label}`}
                     >
-                      <IconComponent size={24} />
+                      <IconComponent size={24} aria-hidden="true" />
                     </a>
                   );
                 })}
@@ -261,35 +291,6 @@ export default function ContactSection() {
                 I typically respond to messages within 24 hours. For urgent inquiries,
                 feel free to call or send a direct email.
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16">
-          <div className="bg-surface rounded-3xl p-6 sm:p-8 text-center">
-            <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-gray-300 text-base sm:text-lg mb-6">
-              Whether you have a specific project in mind or just want to discuss possibilities,
-              I'm here to help you achieve your goals.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:ashrafelgezery2014@gmail.com"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"
-              >
-                <Mail size={18} />
-                Send Email
-              </a>
-              <a
-                href="tel:+201000980788"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-neutral-200 text-zinc-200 font-semibold rounded-xl hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"
-              >
-                <Phone size={18} />
-                Call Now
-              </a>
             </div>
           </div>
         </div>
