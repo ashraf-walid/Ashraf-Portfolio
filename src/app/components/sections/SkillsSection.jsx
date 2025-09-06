@@ -40,34 +40,16 @@ export default function SkillsSection() {
           color: "hover:bg-black/20"
         },
         {
-          name: "Redux",
-          icon: "/icons/redux.svg",
-          tooltip: "Managed complex state in large-scale applications",
-          color: "hover:bg-purple-500/20"
-        },
-        {
           name: "Tailwind CSS",
           icon: "/icons/tailwind.svg",
           tooltip: "Created responsive and modern UI designs with utility-first CSS",
           color: "hover:bg-cyan-500/20"
         },
         {
-          name: "TypeScript",
-          icon: "/icons/typescript.svg",
-          tooltip: "Enhanced code quality and developer experience with type safety",
-          color: "hover:bg-blue-600/20"
-        },
-        {
           name: "Context API",
           icon: "/icons/context.svg",
-          tooltip: "Implemented lightweight state management for component trees",
+          tooltip: "Sharing state across components without prop drilling",
           color: "hover:bg-green-500/20"
-        },
-        {
-          name: "PWA",
-          icon: "/icons/pwa.svg",
-          tooltip: "Progressive Web Apps for offline support and native-like experiences",
-          color: "hover:bg-gray-500/10"
         },
         {
           name: "Firebase",
@@ -77,36 +59,36 @@ export default function SkillsSection() {
         },
       ]
     },
-    {
-      title: "Backend & Databases",
-      description: "Server-side technologies and data management",
-      skills: [
-        {
-          name: "Prisma",
-          icon: "/icons/prisma.svg",
-          tooltip: "Type-safe database access and schema management",
-          color: "hover:bg-white/20"
-        },
-        {
-          name: "PostgreSQL",
-          icon: "/icons/postgresql.svg",
-          tooltip: "Reliable relational database for production applications",
-          color: "hover:bg-blue-400/20"
-        },
-        {
-          name: "Strapi",
-          icon: "/icons/strapi.svg",
-          tooltip: "Headless CMS for content management and API generation",
-          color: "hover:bg-blue-500/20"
-        },
-        {
-          name: "NextAuth",
-          icon: "/icons/nextauth.svg",
-          tooltip: "Secure authentication and authorization for Next.js applications",
-          color: "hover:bg-green-600/20"
-        }
-      ]
-    },
+    // {
+    //   title: "Backend & Databases",
+    //   description: "Server-side technologies and data management",
+    //   skills: [
+    //     {
+    //       name: "Prisma",
+    //       icon: "/icons/prisma.svg",
+    //       tooltip: "Type-safe database access and schema management",
+    //       color: "hover:bg-white/20"
+    //     },
+    //     {
+    //       name: "PostgreSQL",
+    //       icon: "/icons/postgresql.svg",
+    //       tooltip: "Reliable relational database for production applications",
+    //       color: "hover:bg-blue-400/20"
+    //     },
+    //     {
+    //       name: "Strapi",
+    //       icon: "/icons/strapi.svg",
+    //       tooltip: "Headless CMS for content management and API generation",
+    //       color: "hover:bg-blue-500/20"
+    //     },
+    //     {
+    //       name: "NextAuth",
+    //       icon: "/icons/nextauth.svg",
+    //       tooltip: "Secure authentication and authorization for Next.js applications",
+    //       color: "hover:bg-green-600/20"
+    //     }
+    //   ]
+    // },
     {
       title: "Tools & Others",
       description: "Development tools and additional technologies",
@@ -117,12 +99,12 @@ export default function SkillsSection() {
           tooltip: "Version control and collaborative development workflows",
           color: "hover:bg-orange-600/20"
         },
-        {
-          name: "Clerk",
-          icon: "/icons/clerk.svg",
-          tooltip: "User authentication and management with pre-built components",
-          color: "hover:bg-pink-500/20"
-        },
+        // {
+        //   name: "Clerk",
+        //   icon: "/icons/clerk.svg",
+        //   tooltip: "User authentication and management with pre-built components",
+        //   color: "hover:bg-pink-500/20"
+        // },
         {
           name: "Stripe",
           icon: "/icons/stripe.svg",
@@ -136,11 +118,47 @@ export default function SkillsSection() {
           color: "hover:bg-purple-600/20"
         }
       ]
+    },
+    {
+      title: "Learning",
+      description: "Technologies I'm currently exploring and improving",
+      skills: [
+        {
+          name: "TypeScript",
+          icon: "/icons/typescript.svg",
+          tooltip: "Improving code quality and scalability with type safety",
+          color: "hover:bg-blue-600/20"
+        },
+        // {
+        //   name: "Prisma",
+        //   icon: "/icons/prisma.svg",
+        //   tooltip: "Learning type-safe database access and schema management",
+        //   color: "hover:bg-white/20"
+        // },
+        {
+          name: "NextAuth",
+          icon: "/icons/nextauth.svg",
+          tooltip: "Exploring authentication and authorization for Next.js apps",
+          color: "hover:bg-green-600/20"
+        },
+        {
+          name: "PWA",
+          icon: "/icons/pwa.svg",
+          tooltip: "Progressive Web Apps for offline support and native-like experiences",
+          color: "hover:bg-gray-500/10"
+        },
+        // {
+        //   name: "Redux",
+        //   icon: "/icons/redux.svg",
+        //   tooltip: "Managed complex state in large-scale applications",
+        //   color: "hover:bg-purple-500/20"
+        // },
+      ]
     }
   ];
 
   return (
-    <section id="skills" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
+    <section id="skills" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16 max-sm:mt-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

@@ -7,7 +7,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-4 sm:px-6 md:px-7 py-12 md:py-16 min-h-screen relative overflow-hidden"
+      className="grid grid-cols-1 md:grid-cols-2 items-center md:gap-8 px-4 sm:px-6 md:px-7 py-12 md:py-16 min-h-screen relative overflow-hidden"
       aria-label="Home Section"
     >
       <Animate size={180} className="top-14 right-8 md:top-16 md:right-12" />
@@ -45,7 +45,7 @@ export default function HomeSection() {
           src="/profile/profile-1.webp"
           priority
           alt="Profile photo"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 rounded-3xl object-cover shadow-[15px_15px_0px_rgb(81,81,81)]"
+          className="w-48 h-52 sm:w-64 sm:h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 rounded-3xl object-cover shadow-[8px_8px_0px_rgb(81,81,81)] md:shadow-[15px_15px_0px_rgb(81,81,81)]"
           width={400}
           height={400}
         />

@@ -14,6 +14,7 @@ const OFFLINE_URL = "/offline.html";
  */
 self.addEventListener("install", (event) => {
   event.waitUntil(
+    // caches = API built-in object
     caches.open(CACHE_NAME).then((cache) => cache.add(OFFLINE_URL))
   );
 
@@ -61,6 +62,14 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   
   if (event.request.method !== "GET") return; // Ignore non-GET requests
+  // The browser creates an object of type FetchEvent.
+  // This object is automatically passed as a parameter to the listener:
+  // It has a special function: event.respondWith(responsePromise)
+
+  // The respondWith function tells the browser:
+  // "Instead of completing the normal network request, use the Response I'm sending here."
+  // You must pass a Promise that returns a Response.
+  // The browser will wait for the result and use it instead of the network.
   event.respondWith(
     (async () => {
       // 1) Serve from cache if present
@@ -79,6 +88,8 @@ self.addEventListener("fetch", (event) => {
       } catch (err) {
         // 3) Network failed: if it's a navigation request, show offline fallback
         const isHTMLNavigation =
+          // The mode property of the Request object specifies the purpose of the request.
+          // If it's set to "navigate", it means the request is to load a new HTML page.
           event.request.mode === "navigate" ||
           (event.request.headers.get("accept") || "").includes("text/html");
 
@@ -111,5 +122,42 @@ self.addEventListener("fetch", (event) => {
      );
      self.skipWaiting();
    });
+
+------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------
+
+Common Issues and Potential Pitfalls
+
+Caching Unsuccessful Responses: If fetch returns a 404 or 500, it will also cache the error. Therefore, 
+it's best to check if (networkResponse && networkResponse.ok) before caching.
+
+Opaque Response: Can be cached, but headers cannot be read; this may cause problems if you rely on Vary or Cache-Control.
+
+PUT/POST/non-GET: Do not use caching for non-GET requests. You must check event.request.method === "GET".
+
+Cache Size and Age Management: There is no TTL here; the cache may grow. You should add a policy to delete the oldest items or use size management tools.
+
+Concurrent Process Race: If there are repeated requests to the same resource, more than one fetch may perform a put operation repeatedly—not a bug,
+but it may be unnecessary.
+
+Performance: .put() may take time; If you don't want to delay the user's response, you can not await on cache.put, 
+but run it inside event.waitUntil() or leave it as an unwaited operation.
+
+------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------
+
+Final Practical Tips
+
+What to Cache: HTML pages (after considering a refresh policy), static CSS/JS files, images. Avoid caching responses containing set-cookies.
+
+Stale Management: Consider a refresh policy (e.g., stale-while-revalidate: return the cache immediately and then refresh it in the background).
+
+Monitor Cache Size: Manually enforce maxEntries or maxAge restrictions or use Workbox to manage them.
+
+Track Issues: Open DevTools → Application → Cache Storage to see what's being cached, 
+and open the Service Worker Console (Inspect Service Worker) to view errors and logs.
 
 ------------------------------------------------------------------- */

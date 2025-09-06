@@ -78,7 +78,7 @@ export default function ServicesSection() {
             What I Can Do For You
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto">
-            Comprehensive web development services from frontend to full-stack solutions, 
+            Comprehensive web development services, 
             ensuring your digital presence is modern, fast, and user-friendly.
           </p>
         </div>

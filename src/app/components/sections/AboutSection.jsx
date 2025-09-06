@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="min-h-screen grid md:grid-cols-2 px-2 sm:px-4 py-10 sm:py-16">
+    <section id="about" className="min-h-screen grid flex-col-reverse md:grid-cols-2 px-2 sm:px-4 py-10 sm:py-16">
       {/* Card */}
       <div className="w-fit max-w-md sm:max-w-lg md:max-w-none h-fit bg-[#232323] rounded-3xl flex flex-col justify-between items-center gap-8 p-6 sm:p-8 mx-auto md:mx-0">
         {/* Image & BadgeCheck*/}

@@ -7,23 +7,35 @@ export default function ProjectsSection() {
     {
       id: 1,
       name: "E-Commerce Website",
-      description: "A full-featured online store with product catalog, shopping cart, user authentication, and secure payment processing. Solves the need for businesses to sell products online with a modern, responsive interface.",
-      image: "/projects/ecommerce.jpg",
-      technologies: ["Next.js", "Firebase", "Zustand", "Tailwind CSS", "Stripe"],
-      liveDemo: "https://ecommerce-demo.vercel.app",
-      githubRepo: "https://github.com/ashraf/ecommerce-website",
+      // and secure payment processing
+      description: "A full-featured online store with product catalog, shopping cart, Favorites page, Payment and confirmation page, Advanced Filter, user authentication. Solves the need for businesses to sell products online with a modern, responsive interface.",
+      image: "/projects/ecommerce.png",
+      // "Stripe"
+      technologies: ["Next.js", "Firebase", "Zustand (state management)", "Tailwind CSS", "Lucide" ,"Node.js"],
+      liveDemo: "https://e-commerce-version-arabic.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/e-commerce-version-arabic",
       featured: true
     },
     {
       id: 2,
-      name: "Admin Dashboard",
-      description: "Comprehensive admin panel for e-commerce management. Features product management, order tracking, inventory control, and analytics dashboard. Streamlines business operations and improves efficiency.",
-      image: "/projects/admin-dashboard.jpg",
-      technologies: ["React", "Node.js", "PostgreSQL", "Prisma", "Chart.js"],
-      liveDemo: "https://admin-demo.vercel.app",
-      githubRepo: "https://github.com/ashraf/admin-dashboard",
+      name: "Admin Panel",
+      description: "A modern admin dashboard built with React and Firebase, featuring user management, authentication, and dashboard analytics. The application provides an interface for administrators to manage users and view system analytics.",
+      image: "/projects/admin-dashboard.png",
+      technologies: ["React 19","Firebase","React Router DOM","Vite","Tailwind CSS","Zustand","Lucide React (icons)"],    
+      liveDemo: "https://admin-panel-ten-mu.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/Admin-Panel.git",
       featured: true
     },
+    // {
+    //   id: 2,
+    //   name: "Admin Dashboard",
+    //   description: "Comprehensive admin panel for e-commerce management. Features product management, order tracking, inventory control, and analytics dashboard. Streamlines business operations and improves efficiency.",
+    //   image: "/projects/admin-dashboard.png",
+    //   technologies: ["React", "Node.js", "PostgreSQL", "Prisma", "Chart.js"],
+    //   liveDemo: "https://",
+    //   githubRepo: "https://",
+    //   featured: true
+    // },
     {
       id: 3,
       name: "Authentication System",
@@ -73,10 +85,25 @@ export default function ProjectsSection() {
                 <div className="bg-surface rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   {/* Project Image */}
                   <div className="relative h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
+                    { }
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      // className="max-w-full h-auto block"
+                      // className="w-full h-full object-cover object-center rounded-lg"
+                      // className="w-full h-full object-contain object-center"
+                      // className="w-full h-full object-cover object-center rounded-lg"
+                      className="max-w-full h-auto rounded-lg"
+                      priority={project.featured}
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+                    />
+                    {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
                     <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
                       <span className="text-4xl">🛒</span>
-                    </div>
+                    </div> */}
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                       <div className="text-center text-white">
@@ -150,11 +177,23 @@ export default function ProjectsSection() {
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
-                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                      <span className="text-3xl">
-                        {project.name.includes("Auth") ? "🔐" : "💼"}
-                      </span>
-                    </div>
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.name}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover w-full h-full"
+                        placeholder="blur"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                        <span className="text-3xl">
+                          {project.name.includes("Auth") ? "🔐" : "💼"}
+                        </span>
+                      </div>
+                    )}
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                       <div className="text-center text-white">
@@ -229,7 +268,7 @@ export default function ProjectsSection() {
               Check out my GitHub profile for more projects and contributions.
             </p>
             <a
-              href="https://github.com/ashraf"
+              href="https://github.com/ashraf-walid"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"

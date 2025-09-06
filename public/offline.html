@@ -1,11 +1,215 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <title>أنت غير متصل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>غير متصل بالإنترنت</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #22d3ee;
+        --accent-2: #a78bfa;
+        --danger: #ef4444;
+        --shadow: 0 10px 25px rgba(0,0,0,.35);
+        --radius: 16px;
+        --space: 16px;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #0f172a;
+          --muted: #475569;
+          --shadow: 0 10px 20px rgba(2,6,23,.08);
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(1200px 700px at 100% -10%, rgba(34,211,238,.08), transparent 60%),
+          radial-gradient(900px 600px at -10% 110%, rgba(167,139,250,.10), transparent 60%),
+          var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Kufi Arabic", "Amiri", "Almarai", sans-serif;
+        display: grid;
+        place-items: center;
+        padding: var(--space);
+      }
+      .container {
+        width: 100%;
+        max-width: 720px;
+        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)) padding-box,
+                    linear-gradient(180deg, rgba(34,211,238,.5), rgba(167,139,250,.5)) border-box,
+                    var(--card);
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 20px var(--space) 0 var(--space);
+      }
+      .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: grid;
+        place-items: center;
+        color: #0b1020;
+        font-weight: 800;
+        letter-spacing: .5px;
+      }
+      .brand {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+      .brand b { font-size: 14px; }
+      .brand span { color: var(--muted); font-size: 12px; }
+      .content {
+        padding: 10px var(--space) var(--space) var(--space);
+      }
+      h1 {
+        margin: 8px 0 6px;
+        font-size: clamp(22px, 3.2vw, 28px);
+      }
+      p.lead {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      .card {
+        margin-top: 18px;
+        background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--card);
+        border: 1px solid rgba(148,163,184,.18);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--danger); box-shadow: 0 0 0 6px rgba(239,68,68,.12); }
+      .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+      .btn {
+        appearance: none;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .08s ease, filter .2s ease, box-shadow .2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .btn:active { transform: translateY(1px) scale(.99); }
+      .btn-primary { color: #0b1020; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 8px 18px rgba(34,211,238,.25), 0 4px 10px rgba(167,139,250,.18); }
+      .btn-ghost { color: var(--text); background: rgba(148,163,184,.08); border: 1px solid rgba(148,163,184,.18); }
+      .tips { margin-top: 14px; color: var(--muted); font-size: 13px; }
+      .illus { width: 100%; max-width: 220px; margin: 8px auto 0; display: block; opacity: .9; }
+      footer { padding: 10px var(--space) 18px; color: var(--muted); font-size: 12px; text-align: center; }
+      .kbd { border: 1px solid rgba(148,163,184,.35); padding: 2px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    </style>
   </head>
   <body>
-    <h1>لا يوجد اتصال بالإنترنت</h1>
-    <p>حاول إعادة الاتصال.</p>
+    <main class="container" role="main" aria-labelledby="title">
+      <div class="header" aria-hidden="true">
+        <div class="logo" title="Portfolio">A</div>
+        <div class="brand">
+          <b>محفظتي</b>
+          <span>أعمالي ومشاريعي</span>
+        </div>
+      </div>
+      <div class="content">
+        <svg class="illus" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#22d3ee" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#a78bfa" stop-opacity=".55"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="20" rx="12" ry="12" width="180" height="90" fill="url(#g)" opacity=".14" />
+          <rect x="24" y="34" rx="8" ry="8" width="152" height="64" fill="url(#g)" opacity=".18" />
+          <circle cx="100" cy="66" r="12" fill="#ef4444" opacity=".85" />
+          <path d="M92 66h16" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <h1 id="title">لا يوجد اتصال بالإنترنت</h1>
+        <p class="lead">يبدو أنك غير متصل حاليًا. لا تقلق، يبقى بإمكانك استعراض الصفحات التي تم حفظها مسبقًا. عندما يعود الاتصال يمكنك تحديث الصفحة لمتابعة التصفح.</p>
+
+        <div class="card" aria-live="polite">
+          <div class="status"><span class="dot" aria-hidden="true"></span> <span id="statusText">وضع عدم الاتصال</span></div>
+          <div class="actions">
+            <button class="btn btn-primary" id="retryBtn" type="button" aria-label="إعادة المحاولة">
+              <span>إعادة المحاولة</span>
+            </button>
+            <a class="btn btn-ghost" href="/" aria-label="العودة للصفحة الرئيسية">الصفحة الرئيسية</a>
+          </div>
+          <div class="tips">
+            جرّب التحقق من اتصالك، أو اضغط <span class="kbd">Ctrl</span> + <span class="kbd">R</span> لإعادة التحميل.
+          </div>
+        </div>
+      </div>
+      <footer>
+        هذه الصفحة تعمل حتى بدون اتصال بفضل تطبيق الويب التقدمي (PWA).
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        var retryBtn = document.getElementById('retryBtn');
+        var statusText = document.getElementById('statusText');
+
+        function setStatus(online) {
+          statusText.textContent = online ? 'تم استعادة الاتصال' : 'وضع عدم الاتصال';
+        }
+
+        function hasConnectivity() {
+          if (!navigator.onLine) return Promise.resolve(false);
+          var controller = new AbortController();
+          var t = setTimeout(function(){ controller.abort(); }, 4000);
+          // lightweight request to a same-origin file that is likely cached
+          return fetch('/manifest.json', { method: 'HEAD', cache: 'no-store', signal: controller.signal })
+            .then(function (res) { clearTimeout(t); return res && res.ok; })
+            .catch(function () { clearTimeout(t); return false; });
+        }
+
+        function tryReload() {
+          hasConnectivity().then(function (ok) {
+            if (ok) {
+              setStatus(true);
+              location.reload();
+            } else {
+              setStatus(false);
+              // subtle shake to indicate failure
+              var main = document.querySelector('.container');
+              if (!main) return;
+              main.style.transition = 'transform .12s ease';
+              main.style.transform = 'translateX(-6px)';
+              setTimeout(function(){ main.style.transform = 'translateX(0)'; }, 120);
+            }
+          });
+        }
+
+        retryBtn && retryBtn.addEventListener('click', tryReload);
+        window.addEventListener('online', function(){ setStatus(true); });
+        window.addEventListener('offline', function(){ setStatus(false); });
+      })();
+    </script>
   </body>
 </html>

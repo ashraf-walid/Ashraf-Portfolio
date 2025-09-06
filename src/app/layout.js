@@ -15,6 +15,7 @@ export const metadata = {
     "Responsive Design",
     "Portfolio",
   ],
+  viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     title: "Ashraf Elgezery | Frontend Developer",
     description:
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
       </head>
