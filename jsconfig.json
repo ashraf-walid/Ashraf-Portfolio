@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "checkJs": false,
     "skipLibCheck": true,
+    "types": [],
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -1,6 +1,9 @@
 // A unique cache name per build. Using Date.now() forces a fresh cache
 // every time you deploy a new version of the app.
-const CACHE_NAME = "portfolio-cache-" + Date.now();
+
+const CACHE_VERSION = "v1.0.3"; 
+const CACHE_NAME = `portfolio-cache-${CACHE_VERSION}`;
+
 
 // A minimal offline fallback page that MUST exist in /public/offline.html
 const OFFLINE_URL = "/offline.html";
