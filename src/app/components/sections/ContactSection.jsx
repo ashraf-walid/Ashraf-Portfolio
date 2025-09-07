@@ -16,7 +16,13 @@ import {
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); 
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isClient, setIsClient] = useState(false); 
+
+  // Set client-side flag to prevent hydration mismatch
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Auto-hide status message after 5 seconds
   useEffect(() => {
@@ -157,7 +163,19 @@ export default function ContactSection() {
               Send Me a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
+            {!isClient ? (
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-accent mb-2">
+                    Name *
+                  </label>
+                  <div className="w-full px-4 py-3 bg-[#1b1b1b] border border-gray-600 rounded-xl text-white">
+                    Loading...
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-accent mb-2">
@@ -256,6 +274,7 @@ export default function ContactSection() {
                 </div>
               )}
             </form>
+            )}
           </motion.div>
 
           {/* Contact Information */}
