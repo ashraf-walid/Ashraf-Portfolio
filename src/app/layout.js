@@ -1,7 +1,7 @@
 import "./globals.css";
-import SideMenu from "./components/SideMenu";
-import ScrollToTop from "./components/scroll";
-import ClientWrapper from "@/app/components/ClientWrapper";
+import SideMenu from "../components/SideMenu";
+import ScrollToTop from "../components/scroll";
+import ClientWrapper from "@/components/ClientWrapper";
 export const metadata = {
   title: "Ashraf Elgezery | Frontend Developer",
   description:
@@ -47,27 +47,33 @@ export const metadata = {
   },
 };
 
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Ashraf Elgezery",
-    jobTitle: "Frontend Developer",
-    url: "https://your-portfolio-link.com",
-    sameAs: [
-      "https://github.com/yourusername",
-      "https://linkedin.com/in/yourusername",
-    ],
-  })}
-</script>;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
+        <link rel="icon" href="/favicon_io/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ashraf Elgezery",
+              jobTitle: "Frontend Developer",
+              url: "https://ashraf-portfolio-seven.vercel.app/",
+              sameAs: [
+                "https://github.com/yourusername",
+                "https://linkedin.com/in/yourusername",
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body className="bg-background text-white flex">
