@@ -163,12 +163,16 @@ export default function ProjectsSection() {
                       </> )
                     }
                     {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-                      <div className="text-center text-white">
-                        <p className="text-lg font-semibold mb-2">View Project</p>
-                        <p className="text-sm opacity-90">Click to see more details</p>
+                    <a
+                        href={project.liveDemo}
+                        target="_blank">
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+                        <div className="text-center text-white">
+                          <p className="text-lg font-semibold mb-2">View Project</p>
+                          <p className="text-sm opacity-90">Click to see more details</p>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
                   {/* Project Content */}

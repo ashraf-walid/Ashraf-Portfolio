@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className="bg-background text-white flex overflow-x-hidden">
+      <body className="bg-background text-white flex">
         <ClientWrapper>
           {/* Sidebar */}
           <SideMenu />

@@ -5,9 +5,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
-
 
 /* Global design tokens */
 :root {
