@@ -18,8 +18,6 @@ export const metadata = {
   viewport: {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
   },
   openGraph: {
     title: "Ashraf Elgezery | Frontend Developer",
@@ -55,7 +53,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
         <link rel="icon" href="/favicon_io/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <script
@@ -76,7 +74,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className="bg-background text-white flex">
+      <body className="bg-background text-white flex overflow-x-hidden">
         <ClientWrapper>
           {/* Sidebar */}
           <SideMenu />
