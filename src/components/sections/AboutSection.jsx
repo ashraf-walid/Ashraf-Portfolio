@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="min-h-screen grid flex-col-reverse md:grid-cols-2 px-2 sm:px-4 py-10 sm:py-16">
+    <section id="about" className="min-h-screen grid md:grid-cols-2 px-2 sm:px-4 py-10 sm:py-16 overflow-x-hidden">
       {/* Card */}
       <motion.div 
-        className="w-fit max-w-md sm:max-w-lg md:max-w-none h-fit bg-[#232323] rounded-3xl flex flex-col justify-between items-center gap-8 p-6 sm:p-8 mx-auto md:mx-0"
+        className="w-fit max-w-md sm:max-w-lg md:max-w-none h-fit bg-[#232323] rounded-3xl flex flex-col justify-between items-center gap-8 p-6 sm:p-8 md:mx-0 max-sm:mx-auto"
         initial={{ opacity: 0, x: -50, scale: 0.95 }}
         whileInView={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -95,7 +95,7 @@ export default function AboutSection() {
         viewport={{ once: true }}
       >
         <motion.div 
-          className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl"
+          className="max-sm:mx-auto bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -104,7 +104,7 @@ export default function AboutSection() {
           Get to know me
         </motion.div>
         <motion.div 
-          className="text-3xl sm:text-4xl md:text-5xl max-w-full md:max-w-[470px] font-bold"
+          className="text-3xl sm:text-4xl md:text-5xl max-w-full md:max-w-[470px] font-bold max-sm:text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}

@@ -68,7 +68,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
+    <section id="services" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
