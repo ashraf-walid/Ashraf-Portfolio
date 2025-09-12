@@ -108,7 +108,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -145,7 +145,7 @@ export default function ContactSection() {
         </motion.div>
 
         <motion.div 
-          className="grid lg:grid-cols-2 gap-8 lg:gap-16"
+          className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

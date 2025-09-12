@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
           {/* Sidebar */}
           <SideMenu />
           {/* Main Content */}
-          <main className="flex-1 p-6">{children}</main>
+          <main className="flex-1 p-2 sm:p-4 md:p-6">{children}</main>
           <ScrollToTop />
         </ClientWrapper>
       </body>

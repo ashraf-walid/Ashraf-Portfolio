@@ -90,7 +90,7 @@ export default function ProjectsSection() {
 
         {/* Featured Projects */}
         <motion.div 
-          className="mb-16"
+          className="mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -368,7 +368,7 @@ export default function ProjectsSection() {
 
         {/* Call to Action */}
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-8 sm:mt-12 md:mt-16 text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

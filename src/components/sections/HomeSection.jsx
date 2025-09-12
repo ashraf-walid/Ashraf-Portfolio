@@ -8,7 +8,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="grid grid-cols-1 md:grid-cols-2 mx-auto items-center md:gap-8 px-4 sm:px-6 md:px-7 py-12 md:py-16 min-h-screen relative"
+      className="grid grid-cols-1 md:grid-cols-2 mx-auto items-center md:gap-8 px-2 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16 min-h-screen relative"
       aria-label="Home Section"
     >
       <Animate size={180} className="top-14 right-8 md:top-16 md:right-12" />

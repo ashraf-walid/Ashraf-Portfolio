@@ -76,7 +76,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6 }} 
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <div className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6">
             My Services
@@ -169,7 +169,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Additional Services Info */}
-        <div className="mt-16">
+        <div className="mt-8 sm:mt-12 md:mt-16">
           <div className="bg-surface rounded-3xl p-6 sm:p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -234,7 +234,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
+        <div className="mt-8 sm:mt-12 md:mt-16 text-center">
           <div className="bg-surface rounded-3xl p-6 sm:p-8">
             <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
               Ready to Start Your Project?

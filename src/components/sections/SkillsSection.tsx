@@ -130,7 +130,7 @@ export default function SkillsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -267,7 +267,7 @@ export default function SkillsSection() {
         </motion.div>
         {/* Additional Info */}
         <motion.div 
-          className="mt-16 bg-surface rounded-3xl p-6 sm:p-8"
+          className="mt-8 sm:mt-12 md:mt-16 bg-surface rounded-3xl p-6 sm:p-8"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
