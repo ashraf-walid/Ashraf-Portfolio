@@ -45,7 +45,18 @@ export default function ProjectsSection() {
       liveDemo: "https://ashraf-portfolio-seven.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/Ashraf-Portfolio.git",
       featured: false
+    },
+    {
+      id: 5,
+      name: "Personal Static Website",
+      description: "One of my earliest projects: a fully responsive personal website built with pure HTML, CSS, and JavaScript. It includes multiple sections such as articles, gallery, testimonials, team members, and interactive features, designed to practice layout, responsiveness, and clean UI structure.",
+      image: "/projects/personal-site.png", 
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      liveDemo: "https://ashraf-walid.github.io/Landing-Page/", 
+      githubRepo: "https://github.com/ashraf-walid/Landing-Page.git", 
+      featured: false
     }
+    
   ];
 
   return (
@@ -292,7 +303,7 @@ export default function ProjectsSection() {
                         className="object-cover w-full h-full"
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
-                        style={{ maxWidth: '100%', height: 'auto' }}
+                        // style={{ maxWidth: '100%', height: 'auto' }}
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
