@@ -145,7 +145,7 @@ export default function AboutSection() {
             transition={{ duration: 0.4, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">5+</div>
+            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">6+</div>
             <div className="text-gray-400 text-base sm:text-lg">projects</div>
             <div className="text-gray-400 text-base sm:text-lg">completed</div>
           </motion.div>
@@ -156,7 +156,7 @@ export default function AboutSection() {
             transition={{ duration: 0.4, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">2+</div>
+            <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">3+</div>
             <div className="text-gray-400 text-base sm:text-lg">Years</div>
             <div className="text-gray-400 text-base sm:text-lg">Experience</div>
           </motion.div>
