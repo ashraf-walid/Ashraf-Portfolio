@@ -1,7 +1,7 @@
 // A unique cache name per build. Using Date.now() forces a fresh cache
 // every time you deploy a new version of the app.
 
-const CACHE_VERSION = "v1.0.7"; 
+const CACHE_VERSION = "v1.0.8"; 
 const CACHE_NAME = `portfolio-cache-${CACHE_VERSION}`;
 
 

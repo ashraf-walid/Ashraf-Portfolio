@@ -3,8 +3,14 @@ import Animate from "../motion";
 import Image from "next/image";
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function HomeSection() {
+
+  useEffect(() => {
+    fetch("/api/trackPortfolio").catch(console.error);
+  }, []);
+
   return (
     <section
       id="home"
