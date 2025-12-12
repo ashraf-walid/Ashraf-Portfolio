@@ -6,11 +6,21 @@ import { motion } from "framer-motion";
 export default function ProjectsSection() {
   const projects = [
     {
+      id: 6,
+      name: "DCHC Billing Portal",
+      description: "Billing and invoicing portal for DCHC that ingests NAVIS billing feeds, lets admins manage user accounts, and allows authenticated customers to view, search, and download PDF invoices. The app handles JWT-based auth, connects to MongoDB for user data, and renders Arabic-first PDF invoices generated from NAVIS XML and webhook payloads.",
+      image: "/projects/dchc.jpeg",
+      technologies: ["Next.js 15", "React 19", "Tailwind CSS", "MongoDB", "React Query", "JWT", "pdfmake"],
+      liveDemo: "https://dchc-billing.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/DCHC-Billing",
+      featured: true
+    },
+    {
       id: 1,
       name: "E-Commerce Website",
       description: "A full-featured online store with product catalog, shopping cart, Favorites page, Payment and confirmation page, Advanced Filter, user authentication. Solves the need for businesses to sell products online with a modern, responsive interface.",
       image: "/projects/ecommerce.PNG",
-      technologies: ["Next.js", "Firebase", "Zustand (state management)", "Tailwind CSS", "Lucide" ,"Node.js"],
+      technologies: ["Next.js", "Firebase", "Zustand (state management)", "Tailwind CSS", "Lucide", "Node.js"],
       liveDemo: "https://e-commerce-version-arabic.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/e-commerce-version-arabic",
       featured: true
@@ -20,7 +30,7 @@ export default function ProjectsSection() {
       name: "Admin Panel",
       description: "A modern admin dashboard built with React and Firebase, featuring user management, authentication, and dashboard analytics. The application provides an interface for administrators to manage users and view system analytics.",
       image: "/projects/admin-dashboard.PNG",
-      technologies: ["React 19","Firebase","React Router DOM","Vite","Tailwind CSS","Zustand","Lucide React (icons)"],    
+      technologies: ["React 19", "Firebase", "React Router DOM", "Vite", "Tailwind CSS", "Zustand", "Lucide React (icons)"],
       liveDemo: "https://admin-panel-ten-mu.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/Admin-Panel.git",
       featured: true
@@ -50,27 +60,27 @@ export default function ProjectsSection() {
       id: 5,
       name: "Personal Static Website",
       description: "One of my earliest projects: a fully responsive personal website built with pure HTML, CSS, and JavaScript. It includes multiple sections such as articles, gallery, testimonials, team members, and interactive features, designed to practice layout, responsiveness, and clean UI structure.",
-      image: "/projects/personal-site.png", 
+      image: "/projects/personal-site.png",
       technologies: ["HTML5", "CSS3", "JavaScript"],
-      liveDemo: "https://ashraf-walid.github.io/Landing-Page/", 
-      githubRepo: "https://github.com/ashraf-walid/Landing-Page.git", 
+      liveDemo: "https://ashraf-walid.github.io/Landing-Page/",
+      githubRepo: "https://github.com/ashraf-walid/Landing-Page.git",
       featured: false
     }
-    
+
   ];
 
   return (
     <section id="projects" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -79,7 +89,7 @@ export default function ProjectsSection() {
           >
             My Projects
           </motion.div>
-          <motion.h2 
+          <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +98,7 @@ export default function ProjectsSection() {
           >
             Featured Projects
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,14 +110,14 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* Featured Projects */}
-        <motion.div 
+        <motion.div
           className="mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <motion.h3 
+          <motion.h3
             className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +126,7 @@ export default function ProjectsSection() {
           >
             Featured Work
           </motion.h3>
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-2 gap-8"
             initial="hidden"
             whileInView="visible"
@@ -124,7 +134,7 @@ export default function ProjectsSection() {
             variants={{
               hidden: {},
               visible: {
-                transition: { 
+                transition: {
                   staggerChildren: 0.2,
                   delayChildren: 0.4
                 }
@@ -132,17 +142,17 @@ export default function ProjectsSection() {
             }}
           >
             {projects.filter(project => project.featured).map((project) => (
-              <motion.div 
-                key={project.id} 
+              <motion.div
+                key={project.id}
                 className="group"
                 variants={{
-                  hidden: { 
-                    opacity: 0, 
+                  hidden: {
+                    opacity: 0,
                     y: 40,
                     scale: 0.95
                   },
-                  visible: { 
-                    opacity: 1, 
+                  visible: {
+                    opacity: 1,
                     y: 0,
                     scale: 1,
                     transition: {
@@ -154,29 +164,29 @@ export default function ProjectsSection() {
               >
                 <div className="bg-surface rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                   {/* Project Image */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative w-full aspect-video overflow-hidden rounded-lg bg-gray-100">
                     {project.image ? (
                       <Image
                         src={project.image}
                         alt={project.name}
                         fill
-                        sizes="(min-width: 768px) 50vw, 100vw"
-                        className="max-w-full h-auto rounded-lg"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover hover:scale-105 transition-transform duration-500"
                         priority={project.featured}
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
-                      />  ) : (
+                      />) : (
                       <>
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
                         <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
                           <span className="text-4xl">🛒</span>
                         </div>
-                      </> )
+                      </>)
                     }
                     {/* Overlay on hover */}
                     <a
-                        href={project.liveDemo}
-                        target="_blank">
+                      href={project.liveDemo}
+                      target="_blank">
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                         <div className="text-center text-white">
                           <p className="text-lg font-semibold mb-2">View Project</p>
@@ -245,7 +255,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <motion.h3 
+          <motion.h3
             className="text-2xl sm:text-3xl font-bold text-accent mb-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +264,7 @@ export default function ProjectsSection() {
           >
             Other Projects
           </motion.h3>
-          <motion.div 
+          <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"
             initial="hidden"
             whileInView="visible"
@@ -262,7 +272,7 @@ export default function ProjectsSection() {
             variants={{
               hidden: {},
               visible: {
-                transition: { 
+                transition: {
                   staggerChildren: 0.15,
                   delayChildren: 0.4
                 }
@@ -270,17 +280,17 @@ export default function ProjectsSection() {
             }}
           >
             {projects.filter(project => !project.featured).map((project) => (
-              <motion.div 
-                key={project.id} 
+              <motion.div
+                key={project.id}
                 className="group"
                 variants={{
-                  hidden: { 
-                    opacity: 0, 
+                  hidden: {
+                    opacity: 0,
                     y: 30,
                     scale: 0.95
                   },
-                  visible: { 
-                    opacity: 1, 
+                  visible: {
+                    opacity: 1,
                     y: 0,
                     scale: 1,
                     transition: {
@@ -303,7 +313,7 @@ export default function ProjectsSection() {
                         className="object-cover w-full h-full"
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
-                        // style={{ maxWidth: '100%', height: 'auto' }}
+                      // style={{ maxWidth: '100%', height: 'auto' }}
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
@@ -378,21 +388,21 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div 
+        <motion.div
           className="mt-8 sm:mt-12 md:mt-16 text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="bg-surface rounded-3xl p-6 sm:p-8"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <motion.h3 
+            <motion.h3
               className="text-xl sm:text-2xl font-bold text-accent mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -401,7 +411,7 @@ export default function ProjectsSection() {
             >
               Want to see more?
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-300 text-base sm:text-lg mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

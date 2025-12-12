@@ -129,14 +129,14 @@ export default function SkillsSection() {
     <section id="skills" className="min-h-screen px-2 sm:px-4 py-10 sm:py-16 max-sm:mt-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="bg-slate-200 w-fit text-stone-700 font-bold text-lg sm:text-xl px-4 sm:px-5 py-2 sm:py-3 rounded-3xl mx-auto mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -145,7 +145,7 @@ export default function SkillsSection() {
           >
             My Skills
           </motion.div>
-          <motion.h2 
+          <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function SkillsSection() {
           >
             The skills, tools and technologies I use
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* Skills Categories */}
-        <motion.div 
+        <motion.div
           className="space-y-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -174,8 +174,8 @@ export default function SkillsSection() {
           viewport={{ once: true }}
         >
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div 
-              key={categoryIndex} 
+            <motion.div
+              key={categoryIndex}
               className="bg-surface rounded-3xl p-6 sm:p-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ export default function SkillsSection() {
                 </p>
               </div>
 
-              <motion.div 
+              <motion.div
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
                 initial="hidden"
                 whileInView="visible"
@@ -199,7 +199,7 @@ export default function SkillsSection() {
                 variants={{
                   hidden: {},
                   visible: {
-                    transition: { 
+                    transition: {
                       staggerChildren: 0.05,
                       delayChildren: 0.1
                     }
@@ -213,13 +213,13 @@ export default function SkillsSection() {
                     onMouseEnter={() => setActiveTooltip(`${categoryIndex}-${skillIndex}`)}
                     onMouseLeave={() => setActiveTooltip(null)}
                     variants={{
-                      hidden: { 
-                        opacity: 0, 
+                      hidden: {
+                        opacity: 0,
                         y: 20,
                         scale: 0.9
                       },
-                      visible: { 
-                        opacity: 1, 
+                      visible: {
+                        opacity: 1,
                         y: 0,
                         scale: 1,
                         transition: {
@@ -266,7 +266,7 @@ export default function SkillsSection() {
           ))}
         </motion.div>
         {/* Additional Info */}
-        <motion.div 
+        <motion.div
           className="mt-8 sm:mt-12 md:mt-16 bg-surface rounded-3xl p-6 sm:p-8"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -276,18 +276,18 @@ export default function SkillsSection() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
-                Why These Technologies?
+                Solving Real Problems
               </h3>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                I choose these technologies based on their performance, community support, and ability to deliver exceptional user experiences. Each tool serves a specific purpose in creating robust, scalable applications.
+                Technology is a means to an end. I leverage the React ecosystem to solve complex business challenges—whether it's handling massive datasets, ensuring real-time updates, or building intuitive dashboards for non-technical users.
               </p>
             </div>
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-accent mb-4">
-                Always Learning
+                Continuous Evolution
               </h3>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                The tech landscape evolves rapidly, and I'm committed to staying current with the latest tools and best practices. I regularly explore new technologies to enhance my development capabilities.
+                The web moves fast, and so do I. From mastering Next.js 15's latest features to exploring new state management patterns, I constantly refine my stack to deliver the most modern and efficient solutions possible.
               </p>
             </div>
           </div>

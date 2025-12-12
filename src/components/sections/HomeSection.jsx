@@ -20,7 +20,7 @@ export default function HomeSection() {
       <Animate size={180} className="top-14 right-8 md:top-16 md:right-12" />
       <Animate size={140} className="top-56 left-8 md:top-52 md:left-64" />
       {/* Left Side: Text */}
-      <motion.div 
+      <motion.div
         className="space-y-4 sm:space-y-6 text-center md:text-left z-10"
         initial="hidden"
         animate="visible"
@@ -34,12 +34,12 @@ export default function HomeSection() {
           }
         }}
       >
-        <motion.h1 
+        <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent"
           variants={{
             hidden: { opacity: 0, y: 30 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
               transition: { duration: 0.6, ease: "easeOut" }
             }
@@ -47,12 +47,12 @@ export default function HomeSection() {
         >
           Ashraf Elgezery
         </motion.h1>
-        <motion.h2 
+        <motion.h2
           className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300"
           variants={{
             hidden: { opacity: 0, y: 30 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
               transition: { duration: 0.6, ease: "easeOut" }
             }
@@ -71,26 +71,26 @@ export default function HomeSection() {
             loop
           />
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-[470px] md:max-w-[600px] mx-auto md:mx-0"
           variants={{
             hidden: { opacity: 0, y: 30 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
               transition: { duration: 0.6, ease: "easeOut" }
             }
           }}
         >
-          Frontend Developer specialized in React & Next.js. I create fast, secure, and user-friendly web apps with a focus on clean design and performance.
+          Specialized in building high-performance, secure web applications with React & Next.js. I blend premium UI/UX with robust functionality to deliver seamless user experiences.
         </motion.p>
-        <motion.a 
-          href={`#projects`} 
+        <motion.a
+          href={`#projects`}
           className="inline-block px-6 py-3 mt-8 sm:mt-12 md:mt-16 text-lg bg-[#515151] hover:bg-[#393939] font-semibold rounded-full shadow-md text-white focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"
           variants={{
             hidden: { opacity: 0, y: 30, scale: 0.9 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
               scale: 1,
               transition: { duration: 0.6, ease: "easeOut" }
@@ -104,22 +104,22 @@ export default function HomeSection() {
       </motion.div>
 
       {/* Right Side: Image */}
-      <motion.div 
+      <motion.div
         className="flex justify-center md:justify-end z-10"
         initial={{ opacity: 0, x: 50, scale: 0.9 }}
-        animate={{ 
-          opacity: 1, 
-          x: 0, 
+        animate={{
+          opacity: 1,
+          x: 0,
           scale: 1,
-          transition: { 
-            duration: 0.8, 
+          transition: {
+            duration: 0.8,
             ease: "easeOut",
             delay: 0.5
           }
         }}
       >
         <motion.div
-          whileHover={{ 
+          whileHover={{
             scale: 1.05,
             rotateY: 5,
             transition: { duration: 0.3 }
