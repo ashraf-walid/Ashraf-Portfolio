@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function HomeSection() {
 
   useEffect(() => {
-    fetch("/api/trackPortfolio").catch(console.error);
+    fetch('/api/trackPortfolio', { method: 'POST' });
   }, []);
 
   return (
