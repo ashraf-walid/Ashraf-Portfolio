@@ -7,11 +7,28 @@ export default function ClientWrapper({ children }) {
     useEffect(() => {
       if ("serviceWorker" in navigator) {
         if (process.env.NODE_ENV === "production") {
-          navigator.serviceWorker.register("/sw.js")
-          .then(() => {
-            console.log("✅ Service Worker Registered");
-          })
-          .catch((error) => { console.log("ERROR",error) })
+          // Use a versioned URL to force the browser to fetch the new SW file
+          // bypassing any HTTP cache for the script itself.
+          navigator.serviceWorker
+            .register("/sw.js?v=1.0.9")
+            .then((registration) => {
+              console.log("✅ Service Worker Registered");
+
+              // Check for updates immediately
+              registration.update();
+            })
+            .catch((error) => {
+              console.log("ERROR", error);
+            });
+
+          // Reload the page when the new Service Worker takes control
+          let refreshing = false;
+          navigator.serviceWorker.addEventListener("controllerchange", () => {
+            if (!refreshing) {
+              refreshing = true;
+              window.location.reload();
+            }
+          });
         } else {
           navigator.serviceWorker.getRegistrations().then((regs) => {
             regs.forEach((reg) => reg.unregister());
@@ -22,19 +39,3 @@ export default function ClientWrapper({ children }) {
 
   return children;
 }
-
-// What does the browser do after "registration"?
-
-// Download the file (sw.js) from the path you specified.
-
-// Run it for the first time in a standalone environment (outside the web page).
-
-// It goes through several stages:
-
-// Install → For initial caching.
-
-// Activate → To become responsible for managing pages.
-
-// After success, the browser stores this site as a Service Worker.
-
-// When you open the site again, the SW is automatically activated without re-registration.
