@@ -6,6 +6,16 @@ import { motion } from "framer-motion";
 export default function ProjectsSection() {
   const projects = [
     {
+      id: 7,
+      name: "Buy Tech Store",
+      description: "Modern e-commerce platform for tech products. Built with Next.js 14 (App Router), MongoDB, and Zustand. Features include secure payments, admin dashboard, server-side API validation, and robust performance.",
+      image: "/projects/buy-tech-store.png",
+      technologies: ["Next.js 14", "MongoDB", "Zustand", "Tailwind CSS", "Cloudinary", "Railway"],
+      liveDemo: "https://buy-tech-store-production.up.railway.app/",
+      githubRepo: "https://github.com/ashraf-walid/Buy-Tech-Store.git",
+      featured: true
+    },
+    {
       id: 6,
       name: "DCHC Billing Portal",
       description: "Billing and invoicing portal for DCHC that ingests NAVIS billing feeds, lets admins manage user accounts, and allows authenticated customers to view, search, and download PDF invoices. The app handles JWT-based auth, connects to MongoDB for user data, and renders Arabic-first PDF invoices generated from NAVIS XML and webhook payloads.",
