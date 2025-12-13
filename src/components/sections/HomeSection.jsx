@@ -8,7 +8,27 @@ import { useEffect } from "react";
 export default function HomeSection() {
 
   useEffect(() => {
-    fetch('/api/trackPortfolio', { method: 'POST' });
+    // Collect client-side data
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const referrer = document.referrer || "direct";
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const language = navigator.language;
+
+    const payload = {
+      screenResolution: `${screenWidth}x${screenHeight}`,
+      referrer,
+      timezone,
+      language
+    };
+
+    fetch('/api/trackPortfolio', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
   }, []);
 
   return (
