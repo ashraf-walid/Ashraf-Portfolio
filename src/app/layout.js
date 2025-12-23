@@ -2,6 +2,7 @@ import "./globals.css";
 import SideMenu from "../components/SideMenu";
 import ScrollToTop from "../components/scroll";
 import ClientWrapper from "@/components/ClientWrapper";
+
 export const metadata = {
   title: "Ashraf Elgezery | Frontend Developer",
   description:

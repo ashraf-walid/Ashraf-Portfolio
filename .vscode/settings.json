@@ -74,5 +74,8 @@
     "ومناسب",
     "يُذكر"
   ],
-  "cSpell.ignoreWords": ["سادس"]
+  "cSpell.ignoreWords": [
+    "سادس"
+  ],
+  "kiroAgent.configureMCP": "Disabled"
 }

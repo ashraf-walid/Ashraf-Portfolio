@@ -1,8 +1,6 @@
 // src/components/UpdateNotification.jsx
 "use client";
 
-// import PrimaryButton from "./ui/PrimaryButton";
-
 export default function UpdateNotification({ updateInfo, onDismiss }) {
   const handleUpdate = () => {
     window.location.reload();

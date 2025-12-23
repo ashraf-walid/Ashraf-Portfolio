@@ -50,7 +50,7 @@ export default function ClientWrapper({ children }) {
     }, []);
 
   return (
-    <div>
+    <>
       {updateAvailable && updateInfo && (
         <UpdateNotification
           updateInfo={updateInfo}
@@ -58,6 +58,6 @@ export default function ClientWrapper({ children }) {
         />
       )}
       {children}
-    </div>
+    </>
   );
 }
