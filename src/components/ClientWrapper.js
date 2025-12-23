@@ -1,9 +1,13 @@
 // src/app/components/ClientWrapper.js
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import UpdateNotification from "./UpdateNotification";
 
 export default function ClientWrapper({ children }) {
+    const [updateAvailable, setUpdateAvailable] = useState(false);
+    const [updateInfo, setUpdateInfo] = useState(null);
+
     useEffect(() => {
       if ("serviceWorker" in navigator) {
         if (process.env.NODE_ENV === "production") {
@@ -29,6 +33,14 @@ export default function ClientWrapper({ children }) {
               window.location.reload();
             }
           });
+
+          // Listen for update notifications from service worker
+          navigator.serviceWorker.addEventListener("message", (event) => {
+            if (event.data?.type === "SW_UPDATE_AVAILABLE") {
+              setUpdateAvailable(true);
+              setUpdateInfo(event.data);
+            }
+          });
         } else {
           navigator.serviceWorker.getRegistrations().then((regs) => {
             regs.forEach((reg) => reg.unregister());
@@ -37,5 +49,15 @@ export default function ClientWrapper({ children }) {
       }
     }, []);
 
-  return children;
+  return (
+    <div>
+      {updateAvailable && updateInfo && (
+        <UpdateNotification
+          updateInfo={updateInfo}
+          onDismiss={() => setUpdateAvailable(false)}
+        />
+      )}
+      {children}
+    </div>
+  );
 }

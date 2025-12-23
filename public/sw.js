@@ -1,7 +1,7 @@
 // A unique cache name per build. Using Date.now() forces a fresh cache
 // every time you deploy a new version of the app.
 
-const CACHE_VERSION = "v1.0.9"; 
+const CACHE_VERSION = "v1.1.0"; 
 const CACHE_NAME = `portfolio-cache-${CACHE_VERSION}`;
 
 
@@ -31,22 +31,37 @@ self.addEventListener("install", (event) => {
  * ACTIVATE
  * - Clean up old caches so users don’t get stale assets after a new deploy.
  * - Take control of open clients so the new SW applies without a manual refresh.
+ * - Notify open clients that a new version is active.
  */
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
+    (async () => {
+      // 1) Clean up old caches
+      const keys = await caches.keys();
+      await Promise.all(
         keys.map((key) => {
-          // Delete any cache that doesn’t match the current name
           if (key !== CACHE_NAME) return caches.delete(key);
         })
-      )
-    )
-  );
+      );
 
-  // Makes the new Service Worker take control of all open tabs/pages right away.
-  // Without this, the new SW will only control pages after a refresh.
-  self.clients.claim();
+      // 2) Take control of all open tabs
+      await self.clients.claim();
+
+      // 3) Notify all controlled windows that a new version is active
+      const clients = await self.clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      });
+
+      for (const client of clients) {
+        client.postMessage({
+          type: "SW_UPDATE_AVAILABLE",
+          version: CACHE_VERSION,
+          message: "App updated, tap to reinstall.",
+        });
+      }
+    })()
+  );
 });
 
 /**
