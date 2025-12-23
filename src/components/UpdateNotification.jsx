@@ -36,7 +36,7 @@ export default function UpdateNotification({ updateInfo, onDismiss }) {
                 New Update Available
               </h3>
               <span className="px-2 py-0.5 bg-yellow-400/90 text-purple-900 rounded-full text-xs font-bold shadow-md">
-                v{updateInfo.version}
+                {updateInfo.version}
               </span>
             </div>
             <p className="text-sm text-white/95 leading-relaxed">
