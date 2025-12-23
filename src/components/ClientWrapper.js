@@ -26,13 +26,13 @@ export default function ClientWrapper({ children }) {
             });
 
           // Reload the page when the new Service Worker takes control
-          let refreshing = false;
-          navigator.serviceWorker.addEventListener("controllerchange", () => {
-            if (!refreshing) {
-              refreshing = true;
-              window.location.reload();
-            }
-          });
+          // let refreshing = false;
+          // navigator.serviceWorker.addEventListener("controllerchange", () => {
+          //   if (!refreshing) {
+          //     refreshing = true;
+          //     window.location.reload();
+          //   }
+          // });
 
           // Listen for update notifications from service worker
           navigator.serviceWorker.addEventListener("message", (event) => {
