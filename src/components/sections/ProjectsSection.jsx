@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 export default function ProjectsSection() {
   const projects = [
     {
+      id: 8,
+      name: "Offline-First Web Architecture",
+      description: "A robust offline-first architecture for browser applications. Features IndexedDB local storage, a revision-based sync queue for data consistency, and manual backup strategies. Designed to provide a desktop-like experience with reliable offline usage and secure server-side validation.",
+      image: "/projects/erpsahl.png",
+      technologies: ["PWA", "IndexedDB", "Service Workers", "Revision-based Sync", "Web Storage API", "JSON Backup"],
+      liveDemo: "https://www.erpsahl.online/ar",
+      githubRepo: "#",
+      featured: true,
+      isPrivate: true
+    },
+    {
       id: 7,
       name: "Buy Tech Store",
       description: "Modern e-commerce platform for tech products. Built with Next.js 14 (App Router), MongoDB, and Zustand. Features include secure payments, admin dashboard, server-side API validation, and robust performance.",
@@ -208,8 +219,13 @@ export default function ProjectsSection() {
 
                   {/* Project Content */}
                   <div className="p-6 sm:p-8">
-                    <h4 className="text-xl sm:text-2xl font-bold text-accent mb-3">
+                    <h4 className="text-xl sm:text-2xl font-bold text-accent mb-3 flex items-center gap-3">
                       {project.name}
+                      {project.isPrivate && (
+                        <span className="px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-medium rounded-full border border-amber-500/20">
+                          Private Repo
+                        </span>
+                      )}
                     </h4>
                     <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
                       {project.description}
@@ -241,15 +257,17 @@ export default function ProjectsSection() {
                         <ExternalLink size={18} />
                         Live Demo
                       </a>
-                      <a
-                        href={project.githubRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-neutral-200 text-zinc-200 font-semibold rounded-xl hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition flex-1"
-                      >
-                        <Github size={18} />
-                        GitHub
-                      </a>
+                      {project.githubRepo !== "#" && (
+                        <a
+                          href={project.githubRepo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-neutral-200 text-zinc-200 font-semibold rounded-xl hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition flex-1"
+                        >
+                          <Github size={18} />
+                          GitHub
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -342,9 +360,14 @@ export default function ProjectsSection() {
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <h4 className="text-lg sm:text-xl font-bold text-accent mb-2">
+                    <h4 className="text-lg sm:text-xl font-bold text-accent mb-2 flex items-center flex-wrap gap-2">
                       {project.name}
-                      {project.note && <span className="px-2 py-1 bg-yellow-500 text-black text-xs rounded-full ml-3">{project.note}</span>}
+                      {project.note && <span className="px-2 py-1 bg-yellow-500 text-black text-xs rounded-full">{project.note}</span>}
+                      {project.isPrivate && (
+                        <span className="px-2 py-1 bg-amber-500/10 text-amber-500 text-[10px] font-medium rounded-full border border-amber-500/20">
+                          Private
+                        </span>
+                      )}
                     </h4>
                     <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                       {project.description}
@@ -380,15 +403,17 @@ export default function ProjectsSection() {
                         <ExternalLink size={14} />
                         Demo
                       </a>
-                      <a
-                        href={project.githubRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-1 px-3 py-2 border border-neutral-200 text-zinc-200 font-semibold rounded-lg hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition text-sm flex-1"
-                      >
-                        <Github size={14} />
-                        Code
-                      </a>
+                      {project.githubRepo !== "#" && (
+                        <a
+                          href={project.githubRepo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-1 px-3 py-2 border border-neutral-200 text-zinc-200 font-semibold rounded-lg hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition text-sm flex-1"
+                        >
+                          <Github size={14} />
+                          Code
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
