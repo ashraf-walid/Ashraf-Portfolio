@@ -24,7 +24,7 @@ export default function VisitorsDashboard() {
         fetch("/api/visits")
             .then((res) => res.json())
             .then((data) => {
-                setVisits(data);
+                setVisits(Array.isArray(data) ? data : []);
                 setLoading(false);
                 setIsRefreshing(false);
             })
@@ -38,11 +38,12 @@ export default function VisitorsDashboard() {
         fetchVisits();
     }, []);
 
-    // Calculate Stats
-    const uniqueVisitors = new Set(visits.map(v => v.ip)).size;
-    const uniqueCountries = new Set(visits.map(v => v.geo?.country).filter(Boolean)).size;
-    const mobileUsers = visits.filter(v => v.device?.type === "mobile").length;
-    const desktopUsers = visits.filter(v => !v.device?.type || v.device?.type === "desktop").length;
+    // Calculate Stats safely
+    const visitsArray = Array.isArray(visits) ? visits : [];
+    const uniqueVisitors = new Set(visitsArray.map(v => v.ip)).size;
+    const uniqueCountries = new Set(visitsArray.map(v => v.geo?.country).filter(Boolean)).size;
+    const mobileUsers = visitsArray.filter(v => v.device?.type === "mobile").length;
+    const desktopUsers = visitsArray.filter(v => !v.device?.type || v.device?.type === "desktop").length;
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -99,7 +100,7 @@ export default function VisitorsDashboard() {
                     <StatsCard
                         icon={<Users className="text-blue-400" />}
                         label="Total Visits"
-                        value={visits.length}
+                        value={visitsArray.length}
                         subValue={`${uniqueVisitors} Unique IPs`}
                     />
                     <StatsCard
@@ -112,13 +113,13 @@ export default function VisitorsDashboard() {
                         icon={<Smartphone className="text-purple-400" />}
                         label="Mobile Users"
                         value={mobileUsers}
-                        subValue={`${Math.round((mobileUsers / (visits.length || 1)) * 100)}% of traffic`}
+                        subValue={`${Math.round((mobileUsers / (visitsArray.length || 1)) * 100)}% of traffic`}
                     />
                     <StatsCard
                         icon={<Monitor className="text-orange-400" />}
                         label="Desktop Users"
                         value={desktopUsers}
-                        subValue={`${Math.round((desktopUsers / (visits.length || 1)) * 100)}% of traffic`}
+                        subValue={`${Math.round((desktopUsers / (visitsArray.length || 1)) * 100)}% of traffic`}
                     />
                 </motion.div>
 
@@ -135,7 +136,7 @@ export default function VisitorsDashboard() {
                             Recent Activity
                         </h3>
                         <div className="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full">
-                            Showing last {visits.length} records
+                            Showing last {visitsArray.length} records
                         </div>
                     </div>
 
@@ -151,7 +152,7 @@ export default function VisitorsDashboard() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5 text-sm">
-                                {visits.map((visit, index) => (
+                                {visitsArray.map((visit, index) => (
                                     <tr key={index} className="hover:bg-white/[0.02] transition-colors duration-150">
                                         <td className="p-4 text-gray-300 whitespace-nowrap">
                                             <div className="flex items-center gap-2">
@@ -233,7 +234,7 @@ function StatsCard({ icon, label, value, subValue }) {
 
 // Helper to convert country code to flag emoji
 function getFlagEmoji(countryCode) {
-    if (!countryCode) return "🌍";
+    if (!countryCode || typeof countryCode !== 'string') return "🌍";
     const codePoints = countryCode
         .toUpperCase()
         .split('')
