@@ -32,8 +32,8 @@ export default function ProjectsSection() {
       description: "Billing and invoicing portal for DCHC that ingests NAVIS billing feeds, lets admins manage user accounts, and allows authenticated customers to view, search, and download PDF invoices. The app handles JWT-based auth, connects to MongoDB for user data, and renders Arabic-first PDF invoices generated from NAVIS XML and webhook payloads.",
       image: "/projects/dchc.jpeg",
       technologies: ["Next.js 15", "React 19", "Tailwind CSS", "MongoDB", "React Query", "JWT", "pdfmake"],
-      liveDemo: "https://dchc-billing.vercel.app/",
-      githubRepo: "https://github.com/ashraf-walid/DCHC-Billing",
+      liveDemo: "https://dchc-billing-lt33.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/DCHCBilling",
       featured: true
     },
     {
