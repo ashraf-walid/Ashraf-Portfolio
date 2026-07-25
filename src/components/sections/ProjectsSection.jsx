@@ -14,7 +14,11 @@ export default function ProjectsSection() {
       liveDemo: "https://tader-amnat.vercel.app/",
       githubRepo: "https://github.com/ashraf-walid/tader-amnat",
       featured: true,
-      isPrivate: false
+      isPrivate: false,
+      demoCredentials: {
+        username: "admin",
+        password: "123"
+      }
     },
     {
       id: 8,
@@ -241,6 +245,28 @@ export default function ProjectsSection() {
                     <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
                       {project.description}
                     </p>
+
+                    {/* Demo Credentials - Only show if available */}
+                    {project.demoCredentials && (
+                      <div className="mb-4 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-blue-500/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                          </svg>
+                          <h5 className="text-sm font-semibold text-blue-300">Demo Access</h5>
+                        </div>
+                        <div className="text-xs text-gray-300 space-y-1">
+                          <p className="flex items-center gap-2">
+                            <span className="font-medium text-blue-200">Username:</span>
+                            <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.username}</code>
+                          </p>
+                          <p className="flex items-center gap-2">
+                            <span className="font-medium text-blue-200">Password:</span>
+                            <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.password}</code>
+                          </p>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Technologies */}
                     <div className="mb-6">
