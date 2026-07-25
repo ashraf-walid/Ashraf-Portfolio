@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 export default function ProjectsSection() {
   const projects = [
     {
+      id: 9,
+      name: "Amanat (Tader-Amnat) - SaaS PWA",
+      description: "A high-quality storage fee billing system, designed for offline operation, for Damietta Port. It features sophisticated storage fee calculations, caching in an IndexedDB database, Arabic search indexing, automatic web-based push notifications, and an analytical dashboard for administrators. It is designed to operate efficiently even with a weak internet connection.",
+      image: "/projects/amanat.PNG",
+      technologies: ["Next.js 16", "React 19", "MongoDB", "Mongoose", "Dexie.js", "Service Workers", "Web Push", "JWT", "Tailwind CSS v4"],
+      liveDemo: "https://tader-amnat.vercel.app/",
+      githubRepo: "https://github.com/ashraf-walid/tader-amnat",
+      featured: true,
+      isPrivate: false
+    },
+    {
       id: 8,
       name: "Offline-First Web Architecture",
       description: "A robust offline-first architecture for browser applications. Features IndexedDB local storage, a revision-based sync queue for data consistency, and manual backup strategies. Designed to provide a desktop-like experience with reliable offline usage and secure server-side validation.",
