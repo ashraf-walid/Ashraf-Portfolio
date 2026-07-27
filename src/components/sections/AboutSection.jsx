@@ -145,8 +145,8 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <div className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">6+</div>
+            <div className="text-gray-400 text-base sm:text-lg">Real</div>
             <div className="text-gray-400 text-base sm:text-lg">projects</div>
-            <div className="text-gray-400 text-base sm:text-lg">completed</div>
           </motion.div>
           <motion.div
             className="text-center"
