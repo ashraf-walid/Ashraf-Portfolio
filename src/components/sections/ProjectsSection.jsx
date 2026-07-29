@@ -90,15 +90,6 @@ export default function ProjectsSection() {
     },
     {
       id: 4,
-      name: "Portfolio Website",
-      description: "Modern, responsive portfolio website showcasing skills and projects. Features smooth animations, dark mode, and optimized performance for better user experience.",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Emailjs", "TypeScript"],
-      liveDemo: "https://ashraf-portfolio-seven.vercel.app/",
-      githubRepo: "https://github.com/ashraf-walid/Ashraf-Portfolio.git",
-      featured: false
-    },
-    {
-      id: 5,
       name: "Personal Static Website",
       description: "One of my earliest projects: a fully responsive personal website built with pure HTML, CSS, and JavaScript. It includes multiple sections such as articles, gallery, testimonials, team members, and interactive features, designed to practice layout, responsiveness, and clean UI structure.",
       image: "/projects/personal-site.png",
