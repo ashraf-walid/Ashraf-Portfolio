@@ -27,9 +27,9 @@ export default function ProjectsSection() {
       image: "/projects/erpsahl.PNG",
       technologies: ["PWA", "IndexedDB", "Service Workers", "Revision-based Sync", "Web Storage API", "JSON Backup"],
       liveDemo: "https://www.erpsahl.online/ar",
-      githubRepo: "#",
+      githubRepo: "https://github.com/ashraf-walid/SaaS-PWA",
       featured: true,
-      isPrivate: true
+      isPrivate: false
     },
     {
       id: 7,
@@ -251,7 +251,7 @@ export default function ProjectsSection() {
                           </svg>
                           <h5 className="text-sm font-semibold text-blue-300">Demo Access</h5>
                         </div>
-                        <div className="text-xs text-gray-300 space-y-1">
+                        <div className="text-xs text-gray-300 flex flex-wrap items-center gap-x-4 gap-y-1">
                           <p className="flex items-center gap-2">
                             <span className="font-medium text-blue-200">Username:</span>
                             <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.username}</code>
