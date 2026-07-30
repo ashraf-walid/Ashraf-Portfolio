@@ -29,7 +29,10 @@ export default function ProjectsSection() {
       liveDemo: "https://www.erpsahl.online/ar",
       githubRepo: "https://github.com/ashraf-walid/SaaS-PWA",
       featured: true,
-      isPrivate: false
+      isPrivate: false,
+      demoCredentials: {
+        note: "Click (Launch Demo Mode) on the homepage to start"
+      }
     },
     {
       id: 7,
@@ -252,14 +255,24 @@ export default function ProjectsSection() {
                           <h5 className="text-sm font-semibold text-blue-300">Demo Access</h5>
                         </div>
                         <div className="text-xs text-gray-300 flex flex-wrap items-center gap-x-4 gap-y-1">
-                          <p className="flex items-center gap-2">
-                            <span className="font-medium text-blue-200">Username:</span>
-                            <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.username}</code>
-                          </p>
-                          <p className="flex items-center gap-2">
-                            <span className="font-medium text-blue-200">Password:</span>
-                            <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.password}</code>
-                          </p>
+                          {project.demoCredentials.username && (
+                            <p className="flex items-center gap-2">
+                              <span className="font-medium text-blue-200">Username:</span>
+                              <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.username}</code>
+                            </p>
+                          )}
+                          {project.demoCredentials.password && (
+                            <p className="flex items-center gap-2">
+                              <span className="font-medium text-blue-200">Password:</span>
+                              <code className="bg-black/30 px-2 py-0.5 rounded text-blue-100">{project.demoCredentials.password}</code>
+                            </p>
+                          )}
+                          {project.demoCredentials.note && (
+                            <p className="flex items-center gap-2">
+                              <span className="font-medium text-blue-200">Instruction:</span>
+                              <span className="text-blue-100 font-medium bg-black/20 px-2 py-0.5 rounded">{project.demoCredentials.note}</span>
+                            </p>
+                          )}
                         </div>
                       </div>
                     )}

@@ -16,9 +16,9 @@ import {
 
 const sections = [
   { id: "home", icon: <Home size={24} />, label: "Home" },
+  { id: "projects", icon: <CodeXml size={24} />, label: "Projects" },
   { id: "about", icon: <User size={24} />, label: "About" },
   { id: "skills", icon: <FileCheck2 size={24}/>, label: "Skills" },
-  { id: "projects", icon: <CodeXml size={24} />, label: "Projects" },
   { id: "services", icon: <BriefcaseBusiness size={24} />, label: "Services" },
   { id: "contact", icon: <Mail size={24} />, label: "Contact" },
 ];

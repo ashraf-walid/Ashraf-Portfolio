@@ -11,9 +11,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <HomeSection />
+      <ProjectsSection />
       <AboutSection />
       <SkillsSection />
-      <ProjectsSection />
       <ServicesSection />
       <ContactSection />
     </div>
