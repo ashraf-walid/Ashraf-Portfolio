@@ -10,11 +10,6 @@ export async function POST(request) {
         const ip = request.headers.get("x-forwarded-for") || "unknown";
         const userAgentString = request.headers.get("user-agent") || "unknown";
 
-        // Filter out bots and screenshot tools
-        if (userAgentString.includes("vercel-screenshot")) {
-            return NextResponse.json({ success: true, ignored: true });
-        }
-
         // Parse User Agent
         const parser = new UAParser(userAgentString);
         const uaResult = parser.getResult();
@@ -24,7 +19,18 @@ export async function POST(request) {
         try {
             clientData = await request.json();
         } catch (e) {
-            console.warn("No JSON body provided");
+            return NextResponse.json(
+                { error: "Invalid request body" },
+                { status: 400 }
+            );
+        }
+
+        // Validate required fields
+        if (!clientData.actionType) {
+            return NextResponse.json(
+                { error: "actionType is required" },
+                { status: 400 }
+            );
         }
 
         // Get Geolocation Data (Vercel Headers)
@@ -35,24 +41,38 @@ export async function POST(request) {
 
         const timestamp = new Date();
 
-        await db.collection("visits").insertOne({
+        // Save action to database
+        await db.collection("actions").insertOne({
+            // Action details
+            actionType: clientData.actionType, // e.g., "live_demo", "github", "download_cv", "contact"
+            projectName: clientData.projectName || null, // e.g., "Amanat"
+            projectUrl: clientData.projectUrl || null, // e.g., "https://amanat.com"
+            buttonLabel: clientData.buttonLabel || null, // e.g., "Live Demo"
+            
+            // User details
             ip,
             userAgent: userAgentString,
             browser: uaResult.browser,
             os: uaResult.os,
             device: uaResult.device,
-            geo, // Location data
+            geo,
+            
+            // Additional client data
             screenResolution: clientData.screenResolution || null,
             referrer: clientData.referrer || request.headers.get("referer") || null,
             timezone: clientData.timezone || null,
             language: clientData.language || request.headers.get("accept-language") || null,
-            page: "portfolio",
+            
+            // Metadata
             timestamp,
         });
 
         return NextResponse.json({ success: true }, { status: 200 });
     } catch (error) {
-        console.error("Error tracking visit:", error);
-        return NextResponse.json({ success: false }, { status: 500 });
+        console.error("Error tracking action:", error);
+        return NextResponse.json(
+            { error: "Failed to track action" },
+            { status: 500 }
+        );
     }
 }

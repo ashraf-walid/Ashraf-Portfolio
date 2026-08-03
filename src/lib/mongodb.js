@@ -1,7 +1,13 @@
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGODB_URI; 
-const options = {};
+const options = {
+  // Fix SSL certificate verification issues in development
+  tls: true,
+  tlsAllowInvalidCertificates: process.env.NODE_ENV === "development",
+  serverSelectionTimeoutMS: 10000, // 10 seconds timeout
+  connectTimeoutMS: 10000,
+};
 
 let client;
 let clientPromise;

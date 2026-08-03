@@ -16,10 +16,6 @@ export const metadata = {
     "Responsive Design",
     "Portfolio",
   ],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   openGraph: {
     title: "Ashraf Elgezery | Frontend Developer",
     description:
@@ -44,6 +40,11 @@ export const metadata = {
       "Frontend Developer specializing in React, Next.js, and building modern, responsive web applications.",
     images: ["/profile/profile-2.jpg"],
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {

@@ -12,6 +12,7 @@ import {
   CheckCircle,
   AlertCircle
 } from "lucide-react";
+import { trackAction } from "@/lib/trackAction";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -44,6 +45,12 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
+
+    // Track form submission
+    trackAction({
+      actionType: "contact_form",
+      buttonLabel: "Send Message"
+    });
 
     try {
       await emailjs.send(
@@ -318,6 +325,10 @@ export default function ContactSection() {
                           <a
                             href={info.link}
                             aria-label={`Contact via ${info.label}`}
+                            onClick={() => trackAction({
+                              actionType: `contact_${info.label.toLowerCase()}`,
+                              buttonLabel: info.label
+                            })}
                             className="text-gray-300 hover:text-accent transition-colors duration-300"
                           >
                             {info.value}
@@ -354,6 +365,11 @@ export default function ContactSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Visit my ${social.label}`}
+                      onClick={() => trackAction({
+                        actionType: `social_${social.label.toLowerCase()}`,
+                        projectUrl: social.url,
+                        buttonLabel: social.label
+                      })}
                       className={`w-12 h-12 bg-[#1b1b1b] rounded-xl flex items-center justify-center text-accent hover:text-white transition-all duration-300 ${social.color}`}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}

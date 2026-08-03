@@ -2,6 +2,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { trackAction } from "@/lib/trackAction";
 
 export default function ProjectsSection() {
   const projects = [
@@ -298,6 +299,12 @@ export default function ProjectsSection() {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackAction({
+                          actionType: "live_demo",
+                          projectName: project.name,
+                          projectUrl: project.liveDemo,
+                          buttonLabel: "Live Demo"
+                        })}
                         className="flex items-center justify-center gap-2 px-4 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition flex-1"
                       >
                         <ExternalLink size={18} />
@@ -308,6 +315,12 @@ export default function ProjectsSection() {
                           href={project.adminPanel}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackAction({
+                            actionType: "admin_panel",
+                            projectName: project.name,
+                            projectUrl: project.adminPanel,
+                            buttonLabel: "Admin Panel"
+                          })}
                           className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 focus:ring-2 focus:ring-purple-400 focus:outline-none duration-500 transition flex-1 shadow-lg"
                         >
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,6 +334,12 @@ export default function ProjectsSection() {
                           href={project.githubRepo}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackAction({
+                            actionType: "github",
+                            projectName: project.name,
+                            projectUrl: project.githubRepo,
+                            buttonLabel: "GitHub"
+                          })}
                           className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-neutral-200 text-zinc-200 font-semibold rounded-xl hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition flex-1"
                         >
                           <Github size={18} />
@@ -457,6 +476,12 @@ export default function ProjectsSection() {
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackAction({
+                          actionType: "live_demo",
+                          projectName: project.name,
+                          projectUrl: project.liveDemo,
+                          buttonLabel: "Demo"
+                        })}
                         className="flex items-center justify-center gap-1 px-3 py-2 bg-slate-100 text-zinc-700 font-semibold rounded-lg hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition text-sm flex-1"
                       >
                         <ExternalLink size={14} />
@@ -467,6 +492,12 @@ export default function ProjectsSection() {
                           href={project.githubRepo}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackAction({
+                            actionType: "github",
+                            projectName: project.name,
+                            projectUrl: project.githubRepo,
+                            buttonLabel: "Code"
+                          })}
                           className="flex items-center justify-center gap-1 px-3 py-2 border border-neutral-200 text-zinc-200 font-semibold rounded-lg hover:bg-[#5f5f5f] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition text-sm flex-1"
                         >
                           <Github size={14} />
@@ -518,6 +549,10 @@ export default function ProjectsSection() {
               href="https://github.com/ashraf-walid"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackAction({
+                actionType: "github_profile",
+                buttonLabel: "View All Projects on GitHub"
+              })}
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-zinc-700 font-semibold rounded-xl hover:bg-[#cacaca] focus:ring-2 focus:ring-accent focus:outline-none duration-500 transition"
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
